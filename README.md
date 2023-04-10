@@ -36,9 +36,9 @@ Riley Surratt:
 ● Notifications -- keeps users apprised and engaged (used in the adding to shopping cart function as a dialog and used in the notification of order status to customer and deliverer for bare-bones notification implementation)
 
 Melisa Tasel:  
-● Iterator Pattern -- improves efficiency of list access
+● Iterator Pattern -- improves efficiency of list access (OrderListController, OrderListView, Main)
 
-● Alternating Row Colors -- practical for visual clarity
+● Alternating Row Colors -- practical for visual clarity (OrderListView)
 
 Kim Winters:  
 ● Composite -- tree structure of individual objects to be manipulated
