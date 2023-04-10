@@ -24,10 +24,11 @@ Taylor Bracone:
 ● Navigation Tabs -- navigation of options and system functions alike --> View > Restaurants (SwingTabsView) it has all of the use case tabs
 
 Ananya Reddy:  
-● Builder -- avoids null errors in information input in constructors
+● Builder -- avoids null errors in information input in constructors --
+Found within Model --> Actors. User Builder added to User class.
 
-
-● Shopping Cart -- integral to e-commerce platforms and recognizable
+● Shopping Cart -- integral to e-commerce platforms and recognizable --
+Found in View folder. Shopping Cart GUI that shows all the menu items a customer added to their cart from the menu options screen
 
 Riley Surratt:  
 ● Chain of Responsibility -- isolates behavior requirements to handle requests (used for NotificationChain, OrderNotifier, CustomerNotifier, DelivererNotifier, and RestaurantController)

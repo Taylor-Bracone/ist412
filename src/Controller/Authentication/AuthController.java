@@ -11,6 +11,7 @@ import Model.Restaurant.Order;
 import Model.Restaurant.OrderList;
 import Model.Restaurant.PastOrderList;
 import View.Actors.AuthenticationView;
+import View.AuthView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,14 +20,13 @@ public class AuthController {
     private OrderList orderList;
     private PastOrderList pastOrderList;
     private User user;
-    private AuthenticationView authView;
+    private AuthView authView;
     CustomerController customerController;
     RestaurantOwnerController restaurantOwnerController;
     DelivererController delivererController;
 
     public AuthController(){
-        this.authView = new AuthenticationView();
-        user = authView.login();
+        this.authView = new AuthView();
 
         String verifiedUser = user.verifyUser();
         if (verifiedUser.equals("Customer")){
