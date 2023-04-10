@@ -40,6 +40,12 @@ public class User {
         this.pswd = pswd;
     }
 
+    private User(UserBuilder builder) {
+        this.firstName = builder.firstName;
+        this.lastName = builder.lastName;
+        this.phoneNumber = builder.phoneNumber;
+        this.address = builder.address;
+    }
     public String verifyUser(){
         String position = "";
         if (this.getUserName().equals("Customer1") && this.getPswd().equals("password")){
@@ -129,5 +135,30 @@ public class User {
 
     public String getPosition() {
         return position;
+    }
+    public static class UserBuilder{
+        private final String firstName;
+        private final String lastName;
+        private String address;
+        private String phoneNumber;
+
+        public UserBuilder(String firstName, String lastName){
+            this.firstName = firstName;
+            this.lastName = lastName;
+        }
+
+        public UserBuilder adddress (String address){
+            this.address = address;
+            return this;
+        }
+
+        public UserBuilder phoneNumber (String phoneNumber){
+            this.phoneNumber = phoneNumber;
+            return this;
+        }
+        public User build(){
+            User user = new User(this);
+            return user;
+        }
     }
 }
