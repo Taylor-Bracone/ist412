@@ -59,6 +59,7 @@ public class ShoppingCartView extends JFrame implements ActionListener {
         name.add(item.getDescription());
         name.add(item.getPrice());
         cartTableModel.addRow(name);
+        JOptionPane.showMessageDialog(this, "Item added to cart.");
     }
 
     @Override
