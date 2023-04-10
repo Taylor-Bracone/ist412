@@ -66,4 +66,10 @@ public class RestaurantController {
         //OrderList.addItem(order);
     }
 
+    public void orderReady(Order order){
+        //marks order as ready and initiates chain
+        NotificationChain notificationChain = new NotificationChain();
+        notificationChain.notifyOrderReady(order);
+    }
+
 }
