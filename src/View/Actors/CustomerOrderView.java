@@ -1,14 +1,8 @@
 package View.Actors;
 
 import Controller.Actors.CustomerController;
-import Controller.Authentication.AuthController;
-import Controller.Restaurant.RestaurantController;
 import Model.Actors.Customer;
-import Model.Actors.User;
-import Model.Restaurant.Restaurant;
-import Model.Restaurant.RestaurantList;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class CustomerOrderView {

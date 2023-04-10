@@ -1,15 +1,13 @@
 package Controller.Restaurant;
 
 import Model.Actors.Customer;
-import Model.Actors.Deliverer;
 import Model.Actors.RestaurantOwner;
-import Model.Actors.User;
-import Model.Restaurant.*;
+import Model.Restaurant.Food;
+import Model.Restaurant.Order;
+import Model.Restaurant.OrderList;
+import Model.Restaurant.Restaurant;
 import View.Restaurant.MenuView;
-import View.Restaurant.RestaurantOrderView;
 import View.ShoppingCartView;
-
-import java.util.List;
 
 public class RestaurantController {
     private MenuView menuView;

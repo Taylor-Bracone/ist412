@@ -1,9 +1,7 @@
 package View.Actors;
 
-import Controller.Actors.CustomerController;
 import Controller.Actors.DelivererController;
 import Model.Actors.Deliverer;
-import Model.Restaurant.Order;
 
 import java.util.Scanner;
 

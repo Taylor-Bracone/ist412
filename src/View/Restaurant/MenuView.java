@@ -1,12 +1,10 @@
 package View.Restaurant;
 
 import Controller.Actors.CustomerController;
-import Controller.Restaurant.OrderController;
 import Controller.Restaurant.RestaurantController;
 import Model.Actors.Customer;
 import Model.Restaurant.Food;
 import Model.Restaurant.Restaurant;
-import View.ShoppingCartView;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -15,7 +13,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.AdjustmentEvent;
 import java.awt.event.AdjustmentListener;
-import java.util.Scanner;
 import java.util.Vector;
 
 public class MenuView extends JFrame implements ActionListener{

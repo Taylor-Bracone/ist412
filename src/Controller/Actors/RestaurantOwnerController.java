@@ -7,7 +7,6 @@ import Model.Actors.RestaurantOperator;
 import Model.Actors.RestaurantOwner;
 import Model.Actors.User;
 import Model.Restaurant.Menu;
-import Model.Restaurant.MenuItem;
 import Model.Restaurant.MenuItem1;
 import Model.Restaurant.Restaurant;
 import View.Restaurant.RestaurantOrderView;

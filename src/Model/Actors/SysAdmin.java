@@ -1,7 +1,5 @@
 package Model.Actors;
 
-import Model.Restaurant.Restaurant;
-
 public class SysAdmin extends User {
 
     /**

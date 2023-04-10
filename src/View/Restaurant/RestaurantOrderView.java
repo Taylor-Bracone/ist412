@@ -1,14 +1,12 @@
 package View.Restaurant;
 
 import Controller.Actors.RestaurantOwnerController;
-import Controller.Restaurant.MenuItemController;
 import Controller.Restaurant.RestaurantController;
 import Controller.Restaurant.RestaurantListController;
 import Model.Actors.RestaurantOperator;
 import Model.Actors.RestaurantOwner;
 import Model.Actors.User;
 import Model.Restaurant.Menu;
-import Model.Restaurant.MenuItem;
 import Model.Restaurant.MenuItem1;
 import Model.Restaurant.Restaurant;
 

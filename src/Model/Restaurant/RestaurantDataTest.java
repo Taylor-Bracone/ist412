@@ -2,7 +2,6 @@ package Model.Restaurant;
 
 import Model.Actors.Customer;
 import Model.Actors.User;
-
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

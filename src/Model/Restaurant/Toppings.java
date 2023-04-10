@@ -1,7 +1,5 @@
 package Model.Restaurant;
 
-import java.util.ArrayList;
-
 public class Toppings implements MenuItem1{
     private String name;
     Double  price;

@@ -3,13 +3,8 @@ package Controller.Actors;
 import Controller.Restaurant.RestaurantController;
 import Controller.Restaurant.RestaurantListController;
 import Model.Actors.Customer;
-import Model.Actors.User;
-import Model.Restaurant.Food;
-import Model.Restaurant.Order;
-import Model.Restaurant.OrderList;
 import Model.Restaurant.Restaurant;
 import View.Actors.CustomerOrderView;
-import View.ShoppingCartView;
 
 import java.util.ArrayList;
 

@@ -1,7 +1,5 @@
 package Model.Restaurant;
 
-import java.util.ArrayList;
-
 public class Sauces implements MenuItem1{
 
     private String name;
