@@ -30,10 +30,10 @@ Ananya Reddy:
 ● Shopping Cart -- integral to e-commerce platforms and recognizable
 
 Riley Surratt:  
-● Chain of Responsibility -- isolates behavior requirements to handle requests
+● Chain of Responsibility -- isolates behavior requirements to handle requests (used for NotificationChain, OrderNotifier, CustomerNotifier, DelivererNotifier, and RestaurantController)
 
 
-● Notifications -- keeps users apprised and engaged
+● Notifications -- keeps users apprised and engaged (used in the adding to shopping cart function as a dialog and used in the notification of order status to customer and deliverer for bare-bones notification implementation)
 
 Melisa Tasel:  
 ● Iterator Pattern -- improves efficiency of list access
