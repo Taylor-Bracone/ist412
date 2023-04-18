@@ -1,16 +1,23 @@
 package View;
 
+import Controller.Authentication.AuthController;
+import Model.Actors.User;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Scanner;
 
-public class AuthView {
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> createLoginView());
+public class AuthView extends JFrame{
+
+    private AuthController authController;
+    public AuthView(AuthController authController){
+        createLoginView();
+        this.authController = authController;
     }
 
-    private static void createLoginView() {
+    private  void createLoginView() {
         JFrame loginFrame = new JFrame("Login");
         loginFrame.setSize(300, 150);
         loginFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -23,7 +30,7 @@ public class AuthView {
         loginFrame.setVisible(true);
     }
 
-    private static void placeComponents(JPanel panel) {
+    private void placeComponents(JPanel panel) {
         panel.setLayout(null);
 
         JLabel userLabel = new JLabel("Username:");
@@ -56,9 +63,9 @@ public class AuthView {
                 String username = userText.getText();
                 String password = new String(passwordText.getPassword());
 
-                // Implement your authentication logic here
-                System.out.println("Username: " + username);
-                System.out.println("Password: " + password);
+                login(username, password);
+                setVisible(false);
+
             }
         });
 
@@ -68,5 +75,12 @@ public class AuthView {
                 System.exit(0);
             }
         });
+
     }
+    public void login(String userName, String password){
+        User user = new User(userName, password);
+        this.authController.login(user);
+        setVisible(false);
+    }
+
 }

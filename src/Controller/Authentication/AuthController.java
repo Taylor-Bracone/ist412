@@ -26,8 +26,10 @@ public class AuthController {
     DelivererController delivererController;
 
     public AuthController(){
-        this.authView = new AuthView();
+        this.authView = new AuthView(this);
+    }
 
+    public void login(User user){
         String verifiedUser = user.verifyUser();
         if (verifiedUser.equals("Customer")){
             Customer customer = new Customer(user, user.getUserName());
@@ -40,4 +42,5 @@ public class AuthController {
             this.delivererController = new DelivererController(deliverer);
         }
     }
+
 }
