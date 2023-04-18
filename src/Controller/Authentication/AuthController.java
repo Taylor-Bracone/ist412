@@ -41,6 +41,11 @@ public class AuthController {
             Deliverer deliverer = new Deliverer(user);
             this.delivererController = new DelivererController(deliverer);
         }
+        else{
+            System.out.println("Invalid login");
+            this.authView = new AuthView(this);
+        }
+
     }
 
 }

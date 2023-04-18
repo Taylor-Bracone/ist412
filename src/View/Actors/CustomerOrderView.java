@@ -63,7 +63,6 @@ public class CustomerOrderView extends JFrame implements ActionListener {
         setVisible(false);
         switch(choice) {
             case 0:
-                //TODO: use RestaurantListView here
                 RestaurantListView restaurantListView = new RestaurantListView(customer);
                 break;
 
