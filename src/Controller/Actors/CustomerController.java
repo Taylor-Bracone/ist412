@@ -23,11 +23,6 @@ public class CustomerController {
     /**
      * handles all logic for customer, has methods for everything the customer can do
      */
-    /*public CustomerController(Customer customer){
-        this.orderView = new CustomerOrderView(customer);
-        this.restaurantListController = new RestaurantListController();
-        this.restaurants = restaurantListController.viewRestaurantList();
-    }*/
     public CustomerController(){
         this.restaurantListController = new RestaurantListController();
         this.restaurantController = new RestaurantController();

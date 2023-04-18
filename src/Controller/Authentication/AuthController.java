@@ -17,9 +17,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AuthController {
-    private OrderList orderList;
-    private PastOrderList pastOrderList;
-    private User user;
     private AuthView authView;
     CustomerController customerController;
     RestaurantOwnerController restaurantOwnerController;
