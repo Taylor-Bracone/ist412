@@ -7,6 +7,7 @@ import Model.Actors.Customer;
 import Model.Actors.User;
 import Model.Restaurant.Restaurant;
 import Model.Restaurant.RestaurantList;
+import View.Restaurant.RestaurantListView;
 
 import javax.swing.*;
 import java.awt.*;
@@ -17,6 +18,7 @@ import java.util.Scanner;
 
 public class CustomerOrderView extends JFrame implements ActionListener {
     private CustomerController customerController = new CustomerController();
+    private RestaurantListView restaurantListView;
     private JPanel optionsView = new JPanel();
     private JList<String> optionsList;
     private JButton btn_select, btn_exit;
@@ -62,9 +64,7 @@ public class CustomerOrderView extends JFrame implements ActionListener {
         switch(choice) {
             case 0:
                 //TODO: use RestaurantListView here
-                customerController.viewRestaurantList();
-                String restaurantName = orderFromRestaurant();
-                customerController.placeOrder(restaurantName, customer);
+                RestaurantListView restaurantListView = new RestaurantListView(customer);
                 break;
 
             case 1:

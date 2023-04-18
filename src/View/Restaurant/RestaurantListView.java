@@ -4,6 +4,7 @@ import Controller.Restaurant.RestaurantController;
 import Controller.Restaurant.RestaurantListController;
 import Model.Actors.Customer;
 import Model.Actors.SysAdmin;
+import Model.Actors.User;
 import Model.Restaurant.Restaurant;
 
 import javax.swing.*;
@@ -22,14 +23,18 @@ public class RestaurantListView extends JFrame implements ActionListener {
    private DefaultTableModel restaurantTableModel;
    private Customer customer;
    private RestaurantListController restaurantListController = new RestaurantListController();
+   private RestaurantController restaurantController = new RestaurantController();
 
    public static void main(String[] args) {
-      RestaurantListView restaurantListView = new RestaurantListView();
+      RestaurantListView restaurantListView = new RestaurantListView(new Customer(new User("test", "test"), "test"));
    }
    public RestaurantListView(){
       initCompts();
    }
-
+   public RestaurantListView(Customer customer){
+       this.customer = customer;
+       initCompts();
+   }
    public void initCompts(){
       setTitle("Restaurant List");
       setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -75,8 +80,12 @@ public class RestaurantListView extends JFrame implements ActionListener {
    @Override
    public void actionPerformed(ActionEvent e) {
       if (e.getSource() == btn_select){
-         //get restaurant selected
-         //then switch views
+         int row = restaurantTable.getSelectedRow();
+         if (row < 0){
+            row = 0;
+         }
+         Restaurant toOrderFrom = restaurantListController.viewRestaurantList().get(row);
+         restaurantController.orderFromMenu(toOrderFrom, customer);
       }
       if (e.getSource() == btn_exit){
          System.exit(0);

@@ -34,11 +34,11 @@ public class CustomerController {
         this.restaurants = restaurantListController.viewRestaurantList();
     }
     public CustomerController(Customer customer){
-        this.orderView = new CustomerOrderView(customer);
         this.restaurantListController = new RestaurantListController();
         this.restaurantController = new RestaurantController(customer);
         this.restaurants = restaurantListController.viewRestaurantList();
         this.customer = customer;
+        this.orderView = new CustomerOrderView(customer);
     }
     public void placeOrder(String restaurant, Customer customer){
         System.out.println("Ordering from " + restaurant);
