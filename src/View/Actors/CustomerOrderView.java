@@ -51,14 +51,6 @@ public class CustomerOrderView extends JFrame implements ActionListener {
         add(buttonPanel, BorderLayout.SOUTH);
     }
 
-    public String orderFromRestaurant (){
-        System.out.println("Pick a Restaurant name from the list above: ");
-        Scanner scanner = new Scanner(System.in);
-        String choice = scanner.nextLine();
-        System.out.println("You will order from: " + choice);
-        return choice;
-    }
-
     private void switchView(int choice, Customer customer){
         setVisible(false);
         switch(choice) {
