@@ -7,68 +7,95 @@ import Model.Actors.Customer;
 import Model.Actors.User;
 import Model.Restaurant.Restaurant;
 import Model.Restaurant.RestaurantList;
+import View.Restaurant.RestaurantListView;
 
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class CustomerOrderView {
-
+public class CustomerOrderView extends JFrame implements ActionListener {
     private CustomerController customerController = new CustomerController();
+    private RestaurantListView restaurantListView;
+    private JPanel optionsView = new JPanel();
+    private JList<String> optionsList;
+    private JButton btn_select, btn_exit;
+    private Customer customer;
 
     public CustomerOrderView(Customer customer){
-        System.out.println("Welcome to the Customer Order View");
-        System.out.println("Select A Functionality: ");
-        System.out.println("1. Place Order");
-        System.out.println("2. See Order History");
-        System.out.println("3. Update your account");
-        System.out.println("4. See your active orders");
-        System.out.println("5. Exit Application");
+        initCompts();
+        setVisible(true);
+        this.customer = customer;
+    }
 
-        Scanner scanner = new Scanner(System.in);
-        int option = scanner.nextInt();
+    public void initCompts(){
+        setTitle("Customer Options View");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setSize(250, 250);
+        setLocationRelativeTo(null);
 
-        switch(option){
-            case 1:
-                System.out.println("Select Restaurant to Order from... ");
-                customerController.viewRestaurantList();
-                String restaurantName = orderFromRestaurant();
-                customerController.placeOrder(restaurantName, customer);
+        String[] options = {"Place Order", "See Order History", "Update your account", "See your active orders"};
+        optionsList = new JList<>(options);
+        optionsView.add(optionsList);
+
+        JPanel buttonPanel = new JPanel();
+        btn_select = new JButton("Select");
+        btn_select.addActionListener(this);
+        btn_exit = new JButton("Exit");
+        buttonPanel.add(btn_select);
+        buttonPanel.add(btn_exit);
+
+        add(optionsView, BorderLayout.CENTER);
+        add(buttonPanel, BorderLayout.SOUTH);
+    }
+
+    private void switchView(int choice, Customer customer){
+        setVisible(false);
+        switch(choice) {
+            case 0:
+                RestaurantListView restaurantListView = new RestaurantListView(customer);
                 break;
 
-            case 2:
-                System.out.println("Your order history... ");
+            case 1:
                 customerController.customerOrderHistory(customer);
                 break;
 
-            case 3:
+            case 2:
+                //TODO: make a new view for this
                 System.out.println("Updating your account... ");
                 System.out.println("Enter your first name: ");
-                String newFirstName = scanner.next();
+                //String newFirstName = scanner.next();
 
                 System.out.println("Enter your last name: ");
-                String newLastName = scanner.next();
+               // String newLastName = scanner.next();
 
                 System.out.println("Enter your address: ");
-                String newAddress = scanner.next();
+                //String newAddress = scanner.next();
 
-                customerController.updateCustomerAccount(newFirstName, newLastName, newAddress);
+                //customerController.updateCustomerAccount(newFirstName, newLastName, newAddress);
                 break;
 
-            case 4:
+            case 3:
                 System.out.println("Viewing your current orders...");
                 customerController.showRestaurantOrders(customer);
                 break;
-            case 5:
+            case 4:
                 System.out.println("Thank you!");
                 break;
         }
     }
 
-    public String orderFromRestaurant (){
-        System.out.println("Pick a Restaurant name from the list above: ");
-        Scanner scanner = new Scanner(System.in);
-        String choice = scanner.nextLine();
-        System.out.println("You will order from: " + choice);
-        return choice;
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == btn_select){
+            int index = optionsList.getSelectedIndex();
+            switchView(index, customer);
+        }
+
+        if (e.getSource() == btn_exit){
+            System.exit(0);
+        }
     }
 }

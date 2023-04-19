@@ -15,9 +15,7 @@ public class RestaurantController {
     private MenuView menuView;
     private OrderController orderController;
     private Customer customer;
-    private OrderList orderList;
     private RestaurantOwner restaurantOwner;
-    private Restaurant restaurant;
 
     public RestaurantController(){
         //this.menuView = new MenuView();

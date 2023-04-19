@@ -17,9 +17,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AuthController {
-    private OrderList orderList;
-    private PastOrderList pastOrderList;
-    private User user;
     private AuthView authView;
     CustomerController customerController;
     RestaurantOwnerController restaurantOwnerController;
@@ -41,6 +38,11 @@ public class AuthController {
             Deliverer deliverer = new Deliverer(user);
             this.delivererController = new DelivererController(deliverer);
         }
+        else{
+            System.out.println("Invalid login");
+            this.authView = new AuthView(this);
+        }
+
     }
 
 }
