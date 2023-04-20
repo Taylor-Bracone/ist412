@@ -1,7 +1,8 @@
 package Controller.Restaurant;
 
+import Model.Restaurant.Order;
 import Model.Restaurant.OrderList;
-import View.OrderListView;
+import View.Restaurant.OrderListView;
 
 public class OrderListController {
     private OrderListView orderListView;
