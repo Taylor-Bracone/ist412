@@ -1,11 +1,8 @@
 package Controller.Restaurant;
 
 import Model.Restaurant.Food;
-import Model.Restaurant.MenuItem;
-import Model.Restaurant.MenuItem1;
+import Model.Restaurant.MenuItemInterface;
 import Model.Restaurant.Restaurant;
-
-import java.util.ArrayList;
 
 public class MenuItemController {
     /**
@@ -16,6 +13,7 @@ public class MenuItemController {
     private RestaurantController restaurantController;
     private RestaurantListController restaurantListController;
     private Restaurant restaurant;
+
     /*
     public void updateName(MenuItem menuItem, String newName){
         //updates name of menu item
@@ -31,26 +29,25 @@ public class MenuItemController {
         //update description
     }
 */
-    public MenuItem1 createMenuItem(Restaurant restaurant, String name, String description, double price){
+    public MenuItemInterface createMenuItem(Restaurant restaurant, Food foodItem){
         //creates new menu item
         //ArrayList<Restaurant> restaurants = restaurantListController.viewRestaurantList();
-        Food menuItem = new Food(name, price, description, null, null);
-        restaurant.getFoodOptions().getMenuItemsList().add(menuItem);
-        return menuItem;
+        restaurant.getFoodOptions().getMenuItemsList().add(foodItem);
+        return foodItem;
     }
 
-    public void updateMenuItem(MenuItem1 menuItem, String name, String description, double price){
+    public void updateMenuItem(MenuItemInterface menuItem, Food foodItem){
         //updates menu item
         String menuItemName = menuItem.name();
-        for(MenuItem1 menuItemToCheck : restaurant.getFoodOptions().getMenuItemsList()){
-            if(menuItem.equals(menuItemToCheck)){
-                menuItemToCheck = menuItem;
+        for(MenuItemInterface menuItemToCheck : restaurant.getFoodOptions().getMenuItemsList()){
+            if(foodItem.equals(menuItemToCheck)){
+                menuItemToCheck = foodItem;
                 System.out.println("Menu item was updated.");
             }
         }
     }
 
-    public void removeMenuItem(Restaurant restaurant, MenuItem1 menuItemToRemove){
+    public void removeMenuItem(Restaurant restaurant, MenuItemInterface menuItemToRemove){
         //remove menu item
         restaurant.getFoodOptions().getMenuItemsList().remove(menuItemToRemove);
         System.out.println("Menu item was removed");

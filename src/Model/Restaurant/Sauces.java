@@ -1,8 +1,6 @@
 package Model.Restaurant;
 
-import java.util.ArrayList;
-
-public class Sauces implements MenuItem1{
+public class Sauces implements MenuItemInterface {
 
     private String name;
     private Double price;

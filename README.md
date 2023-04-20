@@ -19,7 +19,7 @@ To login as a restaurant owner:
 
 ## Group Design Pattern Selections to Implement
 Taylor Bracone:  
-● Observer Pattern -- helps with class interaction and limit need for code alteration --> Model > Actors (Customer), Restaurant (Cuisine, Observer, Restaurant, RestaurantDataTest, RestaurantList, RestaurantListTest, Subject, etc)
+● Observer Pattern -- helps with class interaction and limit need for code alteration --> Model > Actors (Customer), Restaurant (Cuisine, Observer, Restaurant, Model.Restaurant.RestaurantDataTest, RestaurantList, Model.Restaurant.RestaurantListTest, Subject, etc)
 
 ● Navigation Tabs -- navigation of options and system functions alike --> View > Restaurants (SwingTabsView) it has all of the use case tabs
 
@@ -37,9 +37,9 @@ Riley Surratt:
 ● Notifications -- keeps users apprised and engaged (used in the adding to shopping cart function as a dialog and used in the notification of order status to customer and deliverer for bare-bones notification implementation)
 
 Melisa Tasel:  
-● Iterator Pattern -- improves efficiency of list access (implemented in OrderListView)
+● Iterator Pattern -- improves efficiency of list access (implemented in OrderListView, executed through Main class)
 
-● Alternating Row Colors -- practical for visual clarity (used in OrderListView table)
+● Alternating Row Colors -- practical for visual clarity (used in OrderListView table, executed through Main class)
 
 Kim Winters:  
 ● Composite -- tree structure of individual objects to be manipulated

@@ -9,13 +9,13 @@ public class Order {
     private Deliverer deliverer;
     private String status;
     private boolean isValidOrder;
-    private MenuItem1 item;
+    private MenuItemInterface item;
 
     public Order(Customer customer, Restaurant restaurant) {
         this.customer = customer;
         this.restaurant = restaurant;
     }
-    public Order(Customer customer, Restaurant restaurant, MenuItem1 item) {
+    public Order(Customer customer, Restaurant restaurant, MenuItemInterface item) {
         this.customer = customer;
         this.restaurant = restaurant;
         this.item = item;

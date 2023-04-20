@@ -1,6 +1,6 @@
 package Model.Restaurant;
 
-public interface MenuItem1 {
+public interface MenuItemInterface {
 
  public String name();
 

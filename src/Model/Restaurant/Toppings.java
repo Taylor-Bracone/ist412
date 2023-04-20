@@ -1,8 +1,6 @@
 package Model.Restaurant;
 
-import java.util.ArrayList;
-
-public class Toppings implements MenuItem1{
+public class Toppings implements MenuItemInterface {
     private String name;
     Double  price;
 

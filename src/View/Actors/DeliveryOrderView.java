@@ -1,9 +1,7 @@
 package View.Actors;
 
-import Controller.Actors.CustomerController;
 import Controller.Actors.DelivererController;
 import Model.Actors.Deliverer;
-import Model.Restaurant.Order;
 
 import java.util.Scanner;
 
@@ -23,17 +21,28 @@ public class DeliveryOrderView {
 
         switch(option){
             case 1:
-                System.out.println("Viewing your current assigned order... ");
-                delivererController.displayAssignedOrder(deliverer);
+                viewCurrentAssignedOrder();
                 break;
-
             case 2:
-                System.out.println("Your order history... ");
-                delivererController.displayPastOrders(deliverer);
+                viewOrderHistory();
                 break;
             case 3:
-                System.out.println("Thank you!");
+                exitMessage();
                 return;
         }
+    }
+
+    public void viewCurrentAssignedOrder(){
+        System.out.println("Viewing your current assigned order... ");
+        delivererController.displayAssignedOrder(deliverer);
+    }
+
+    public void viewOrderHistory(){
+        System.out.println("Your order history... ");
+        delivererController.displayPastOrders(deliverer);
+    }
+
+    public void exitMessage(){
+        System.out.println("Thank you!");
     }
 }

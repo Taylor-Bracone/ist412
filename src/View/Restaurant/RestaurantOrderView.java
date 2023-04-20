@@ -1,15 +1,13 @@
 package View.Restaurant;
 
 import Controller.Actors.RestaurantOwnerController;
-import Controller.Restaurant.MenuItemController;
 import Controller.Restaurant.RestaurantController;
 import Controller.Restaurant.RestaurantListController;
 import Model.Actors.RestaurantOperator;
 import Model.Actors.RestaurantOwner;
 import Model.Actors.User;
 import Model.Restaurant.Menu;
-import Model.Restaurant.MenuItem;
-import Model.Restaurant.MenuItem1;
+import Model.Restaurant.MenuItemInterface;
 import Model.Restaurant.Restaurant;
 
 import java.util.ArrayList;
@@ -103,7 +101,7 @@ public class RestaurantOrderView {
                         menu = r.getFoodOptions();
                         System.out.println("Please provide the menu item name:");
                         String menuItemName = scanner.next();
-                        for (MenuItem1 menuItem : menu.getMenuItemsList()) {
+                        for (MenuItemInterface menuItem : menu.getMenuItemsList()) {
                             if (menuItem.name().equals(menuItemName)) {
                                 restaurantOwnerController.updateMenuItem(r, menu, menuItem);
                             }
@@ -119,7 +117,7 @@ public class RestaurantOrderView {
                         menu = r.getFoodOptions();
                         System.out.println("Please provide the menu item name:");
                         String menuItemName = scanner.next();
-                        for (MenuItem1 menuItem : menu.getMenuItemsList()) {
+                        for (MenuItemInterface menuItem : menu.getMenuItemsList()) {
                             if (menuItem.name().equals(menuItemName)) {
                                 restaurantOwnerController.removeMenuItem(r, menu, menuItem);
                             }

@@ -2,7 +2,7 @@ package Model.Restaurant;
 
 import java.util.ArrayList;
 
-public class Food implements MenuItem1 {
+public class Food implements MenuItemInterface {
     private String name;
     private Double price;
     private String description;
@@ -10,6 +10,14 @@ public class Food implements MenuItem1 {
     public ArrayList<Toppings> toppings = new ArrayList<>();
 
     public Food (String name, Double price, String description, ArrayList<Sauces> sauces, ArrayList<Toppings> toppings){
+        this.name = name;
+        this.price = price;
+        this.description = description;
+        this.sauces = sauces;
+        this.toppings = toppings;
+    }
+
+    public Food (String name, Double price, String description){
         this.name = name;
         this.price = price;
         this.description = description;
@@ -46,11 +54,11 @@ public class Food implements MenuItem1 {
         return description;
     }
 
-    public void addToppings(MenuItem1 topping) {
+    public void addToppings(MenuItemInterface topping) {
 
     }
 
-    public void addSauces(MenuItem1 sauce) {
+    public void addSauces(MenuItemInterface sauce) {
 
     }
 }
