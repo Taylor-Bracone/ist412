@@ -2,8 +2,6 @@ package Controller.Restaurant;
 
 import Model.Actors.Customer;
 import Model.Restaurant.*;
-import View.Actors.CustomerOrderView;
-import View.ShoppingCartView;
 
 public class OrderController {
     private RestaurantController restaurantController;
@@ -16,7 +14,7 @@ public class OrderController {
         this.customer = customer;
     }
 
-    public Order createOrder(Restaurant restaurant, Customer customer, MenuItem1 item){
+    public Order createOrder(Restaurant restaurant, Customer customer, MenuItemInterface item){
         Order order = new Order(customer, restaurant, item);
         System.out.println("Order to " + restaurant.getRestaurantName() + " from " + customer.getCustomerID() + " was placed");
         //add this order to the customer and restaurant list

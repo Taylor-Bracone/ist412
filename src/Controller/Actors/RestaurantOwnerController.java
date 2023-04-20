@@ -6,9 +6,9 @@ import Controller.Restaurant.RestaurantListController;
 import Model.Actors.RestaurantOperator;
 import Model.Actors.RestaurantOwner;
 import Model.Actors.User;
+import Model.Restaurant.Food;
 import Model.Restaurant.Menu;
-import Model.Restaurant.MenuItem;
-import Model.Restaurant.MenuItem1;
+import Model.Restaurant.MenuItemInterface;
 import Model.Restaurant.Restaurant;
 import View.Restaurant.RestaurantOrderView;
 
@@ -71,9 +71,10 @@ public class RestaurantOwnerController {
         System.out.println("What is the description of the menu item?");
         String menuItemDescription = scanner.nextLine();
         System.out.println("What is the price?");
-        Double price = scanner.nextDouble();
+        Double menuItemPrice = scanner.nextDouble();
         System.out.println("Menu item is being added...");
-        menuItemController.createMenuItem(restaurant, menuItemName, menuItemDescription, price);
+        Food foodItem = new Food(menuItemName, menuItemPrice, menuItemDescription);
+        menuItemController.createMenuItem(restaurant, foodItem);
     }
 
     /*
@@ -83,19 +84,20 @@ public class RestaurantOwnerController {
 
      */
 
-    public void updateMenuItem(Restaurant restaurant, Menu menu, MenuItem1 menuItem){
+    public void updateMenuItem(Restaurant restaurant, Menu menu, MenuItemInterface menuItem){
         //updates menu item
         System.out.println("What is the name of the menu item?");
         String menuItemName = scanner.nextLine();
         System.out.println("What is the description of the menu item?");
         String menuItemDescription = scanner.nextLine();
         System.out.println("What is the price?");
-        Double price = scanner.nextDouble();
+        Double menuItemPrice = scanner.nextDouble();
         System.out.println("Menu item is being updated...");
-        menuItemController.updateMenuItem(menuItem, menuItemName, menuItemDescription, price);
+        Food foodItem = new Food(menuItemName, menuItemPrice, menuItemDescription);
+        menuItemController.updateMenuItem(menuItem, foodItem);
     }
 
-    public void removeMenuItem(Restaurant restaurant, Menu menu, MenuItem1 menuItem){
+    public void removeMenuItem(Restaurant restaurant, Menu menu, MenuItemInterface menuItem){
         //removes menu item
         menuItemController.removeMenuItem(restaurant, menuItem);
         System.out.println("Menu item is being removed...");
