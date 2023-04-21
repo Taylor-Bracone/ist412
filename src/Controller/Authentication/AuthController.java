@@ -7,14 +7,7 @@ import Model.Actors.Customer;
 import Model.Actors.Deliverer;
 import Model.Actors.RestaurantOwner;
 import Model.Actors.User;
-import Model.Restaurant.Order;
-import Model.Restaurant.OrderList;
-import Model.Restaurant.PastOrderList;
-import View.Actors.AuthenticationView;
 import View.AuthView;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class AuthController {
     private AuthView authView;

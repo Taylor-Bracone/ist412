@@ -1,10 +1,9 @@
 package Controller.Actors;
 
 import Model.Actors.Deliverer;
-import Model.Actors.User;
 import Model.Restaurant.Order;
 import Model.Restaurant.OrderList;
-import Model.Restaurant.PastOrderList;
+import Model.Restaurant.HistoricalOrderList;
 import View.Actors.DeliveryOrderView;
 
 public class DelivererController {
@@ -31,7 +30,7 @@ public class DelivererController {
     }
 
     public void displayPastOrders(Deliverer deliverer){
-        for (Order order : PastOrderList.getPastOrderList()) {
+        for (Order order : HistoricalOrderList.getHistoricalOrderList()) {
             if (order.getDeliverer().getDelivererID().equals(deliverer.getDelivererID())) {
                 System.out.println("Details of Past Orders: ");
                 System.out.println("Customer Name: " + order.getCustomer().getFirstName() + " " + order.getCustomer().getLastName());

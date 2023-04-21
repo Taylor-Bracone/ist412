@@ -3,13 +3,9 @@ package Controller.Restaurant;
 import Model.Actors.Deliverer;
 import Model.Actors.DelivererList;
 import Model.Restaurant.Order;
-import Model.Restaurant.OrderList;
-import Model.Restaurant.PastOrderList;
+import Model.Restaurant.HistoricalOrderList;
 import Model.Restaurant.Restaurant;
 import View.Actors.DeliveryOrderView;
-import View.Restaurant.OrderListView;
-
-import java.util.List;
 
 public class DeliveryController {
     private DelivererList delivererList;
@@ -39,6 +35,6 @@ public class DeliveryController {
         //adds delivery to a past orders list
         //adds delivery to the deliverers list of historical deliveries ?
         order.setStatus("Completed");
-        PastOrderList.addItem(order);
+        HistoricalOrderList.addItem(order);
     }
 }

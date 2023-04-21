@@ -4,13 +4,13 @@ import Model.Actors.Deliverer;
 import Model.Actors.RestaurantOwner;
 import Model.Restaurant.Order;
 import Model.Restaurant.OrderList;
-import Model.Restaurant.PastOrderList;
+import Model.Restaurant.HistoricalOrderList;
 import Model.Restaurant.Restaurant;
 
 public class Main {
     public static void main(String[] args) {
         OrderList orderList = new OrderList();
-        PastOrderList pastOrderList = new PastOrderList();
+        HistoricalOrderList historicalOrderList = new HistoricalOrderList();
 
         RestaurantOwner restaurantOwner = new RestaurantOwner("Emily", "Test", "234 Town Square", "111-222-3333" );
         Restaurant restaurant1 = new Restaurant("Yallah",restaurantOwner, 123, 1112223333, "yallah@test.com");
@@ -50,9 +50,9 @@ public class Main {
         orderListController.viewOrderList();
 
         // Add current order to past order list for testing purposes
-        pastOrderList.addItem(order1);
-        pastOrderList.addItem(order2);
-        pastOrderList.addItem(order3);
-        pastOrderList.addItem(order4);
+        historicalOrderList.addItem(order1);
+        historicalOrderList.addItem(order2);
+        historicalOrderList.addItem(order3);
+        historicalOrderList.addItem(order4);
     }
 }
