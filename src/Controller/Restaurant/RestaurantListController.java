@@ -20,12 +20,9 @@ public class RestaurantListController {
     public RestaurantListController(){
         restaurantList = new ArrayList<>();
     }
+
     public void addRestaurantToList(Restaurant restaurant){
         //adds a restaurant to the list
-    }
-
-    public void removeRestaurantFromList(Restaurant restaurant){
-        //removes restaurant from the list
     }
 
     public ArrayList<Restaurant> viewRestaurantList(){
@@ -35,8 +32,8 @@ public class RestaurantListController {
 
     private ArrayList<Restaurant> createList(){
         ArrayList<Food> menuItems1 = new ArrayList<>();
-        Food item = new Food("Tacos", 12.00, "Chicken Tacos", null, null);
-        Food item2 = new Food("Fish", 10.00, "Blue Fish", null, null);
+        Food item = new Food("Tacos", 12.00, "Chicken Tacos");
+        Food item2 = new Food("Fish", 10.00, "Blue Fish");
         menuItems1.add(item);
         menuItems1.add(item2);
         Menu menu = new Menu("Menu1", menuItems1);

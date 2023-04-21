@@ -17,12 +17,4 @@ public class MenuController {
     public void removeMenuFromRestaurant (Restaurant restaurant, Menu menu){
         //remove entire menu from a restaurant
     }
-
-    public void addMenuItem (MenuItem menuItem){
-        //adds a menu item to the menu
-    }
-
-    public void removeMenuItem (MenuItem menuItem){
-
-    }
 }
