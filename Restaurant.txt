@@ -1,1 +1,7 @@
-name:Yallah;restaurantOwner:restaurantOwner;restaurantID:123;phoneNumber:111-222-3333;restaurantEmail:yallah@test.com;address:123 Main Ave;
+name:Yallah
+restaurantOwner:restaurantOwner
+restaurantID:123
+phoneNumber:111-222-3333
+restaurantEmail:yallah@test.com
+address:123 Main Ave
+ID:10
