@@ -4,6 +4,7 @@ import Controller.Actors.CustomerController;
 import Controller.Restaurant.OrderController;
 import Controller.Restaurant.RestaurantController;
 import Model.Actors.Customer;
+import Model.Actors.RestaurantOwner;
 import Model.Restaurant.Food;
 import Model.Restaurant.Restaurant;
 import View.ShoppingCartView;
@@ -29,12 +30,19 @@ public class MenuView extends JFrame implements ActionListener{
     private Restaurant restaurant1;
     private Customer customer;
     private CustomerController customerController;
+    private RestaurantOwner restaurantOwner;
 
     public MenuView(Restaurant restaurant, Customer customer){
         initCompts();
         restaurant1 = restaurant;
         this.customer = customer;
 
+    }
+
+    public MenuView(RestaurantOwner restaurantOwner, Restaurant restaurant){
+        initCompts();
+        restaurant1 = restaurant;
+        this.restaurantOwner = restaurantOwner;
     }
     public MenuView (){
         initCompts();
