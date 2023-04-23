@@ -171,7 +171,7 @@ public class User implements Serializable {
     }
 
     public ArrayList<Customer> readFromCustomerFile() throws IOException {
-        File customerFile = new File("C:\\PSU_One_Drive\\OneDrive - The Pennsylvania State University\\IST412\\Code\\Project\\ist412\\src\\DataFiles\\Customer.txt");
+        File customerFile = new File("src/DataFiles/Customer.txt");
         BufferedReader bufReader = new BufferedReader(new FileReader(customerFile));
         ArrayList<String> data = new ArrayList<>();
         ArrayList<Customer> customerList = new ArrayList<>();
