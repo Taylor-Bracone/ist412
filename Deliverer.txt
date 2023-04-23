@@ -1,3 +1,7 @@
-delivererID:D-54321;firstName:Mark;lastName:White;address:567 Center Drive;phoneNumber:777-888-9999;deliverCompany:DeliveryCompany1;
+delivererID:D-54321
+firstName:Mark
+lastName:White
+address:567 Center Drive
+phoneNumber:777-888-9999
+deliverCompany:DeliveryCompany1
 
-firstName:Susan;lastName:Test;address:123 Main Street;phoneNumber:444-333-5555;ID:01;
