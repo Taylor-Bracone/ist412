@@ -211,15 +211,7 @@ public class User implements Serializable {
             text.append(c.getPassword());
         }
         Files.writeString(customerFile, text);
-//        for (Customer c: customers){
-//            fileWriter.write(c.getFirstName());
-//            fileWriter.write(c.getLastName());
-//            fileWriter.write(c.getAddress());
-//            fileWriter.write(c.getPhoneNumber());
-//            fileWriter.write(c.getUserName());
-//            fileWriter.write(c.getPassword());
-//        }
-//        fileWriter.close();
+//
     }
 
     }
