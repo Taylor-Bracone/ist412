@@ -16,6 +16,7 @@ public class RestaurantOwner extends User{
      * @param address
      * @param phoneNumber
      */
+
     public RestaurantOwner(String firstName, String lastName, String address, String phoneNumber, Restaurant restaurant) {
         super(firstName, lastName, address, phoneNumber);
         this.restaurant = restaurant;
@@ -24,7 +25,6 @@ public class RestaurantOwner extends User{
         super(user.getFirstName(), user.getLastName(), user.getAddress(), user.getPhoneNumber());
         this.restaurantOwnerID = userName;
     }
-
 
     public RestaurantOwner(String firstName, String lastName, String address, String phoneNumber){
         super(firstName, lastName, address, phoneNumber);

@@ -12,7 +12,7 @@ public class Main {
         OrderList orderList = new OrderList();
         HistoricalOrderList historicalOrderList = new HistoricalOrderList();
 
-        RestaurantOwner restaurantOwner = new RestaurantOwner("Emily", "Test", "234 Town Square", "111-222-3333" );
+        RestaurantOwner restaurantOwner = new RestaurantOwner("Emily", "Test", "234 Town Square", "111-222-3333");
         Restaurant restaurant1 = new Restaurant("Yallah",restaurantOwner, 123, 1112223333, "yallah@test.com");
         Restaurant restaurant2 = new Restaurant("Snap",restaurantOwner, 456, 122-333-4444, "snap@test.com");
         Deliverer deliverer1 = new Deliverer("D-54321", "Mark", "White", "567 Center Drive", "777-888-9999", "DeliveryCompany1");

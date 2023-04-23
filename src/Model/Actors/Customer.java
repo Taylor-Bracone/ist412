@@ -4,7 +4,7 @@ import Model.Restaurant.*;
 import java.util.ArrayList;
 
 public class Customer extends User implements Observer {
-    private String customerID;
+    private int customerID;
     private String userName;
     private ArrayList<Cuisine> preferredCuisines = new ArrayList<>();
     //cuisine would go here
@@ -18,7 +18,7 @@ public class Customer extends User implements Observer {
      * @param phoneNumber
      * @param customerID
      */
-    public Customer(String firstName, String lastName, String address, String phoneNumber, String customerID) {
+    public Customer(String firstName, String lastName, String address, String phoneNumber, int customerID) {
         super(firstName, lastName, address, phoneNumber);
         this.customerID = customerID;
     }
@@ -31,7 +31,7 @@ public class Customer extends User implements Observer {
     /**
      * @return customerID
      */
-    public String getCustomerID() {
+    public int getCustomerID() {
         return customerID;
     }
 
