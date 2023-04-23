@@ -53,9 +53,9 @@ public class CustomerController {
         }
     }
 
-    public void updateCustomerAccount(String firstName, String lastName, String address) throws IOException {
+    public void updateCustomerAccount(String firstName, String lastName, String address, String name) throws IOException {
         //customer can update their account information
-        customer.writeToCustomerFile(firstName, lastName, address);
+        customer.writeToCustomerFile(firstName, lastName, address, name);
         System.out.println("Your information was updated");
         System.out.println(firstName + " " + lastName + " " + address);
     }

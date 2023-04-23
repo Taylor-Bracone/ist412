@@ -1,6 +1,8 @@
 package Model.Actors;
 
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -83,7 +85,7 @@ public class User implements Serializable {
                 return "Customer";
             }
         }
-        return null;
+        return "";
     }
 
     public String getFirstName() {
@@ -188,25 +190,28 @@ public class User implements Serializable {
         return  customerList;
     }
 
-    public void writeToCustomerFile(String firstName, String lastName, String address) throws IOException{
-        File customerFile = new File("C:\\PSU_One_Drive\\OneDrive - The Pennsylvania State University\\IST412\\Code\\Project\\ist412\\src\\DataFiles\\Customer.txt");
-        FileWriter fileWriter = new FileWriter(customerFile);
+    public void writeToCustomerFile(String firstName, String lastName, String address, String name) throws IOException{
+        Path customerFile = Path.of("C:\\PSU_One_Drive\\OneDrive - The Pennsylvania State University\\IST412\\Code\\Project\\ist412\\src\\DataFiles\\Customer.txt");
+        //FileWriter fileWriter = new FileWriter(customerFile);
         ArrayList<Customer> customers = this.readFromCustomerFile();
         for (int i = 0; i <customers.size(); i++){
-            if (customers.get(i).getUserName() == userName){
+            if (customers.get(i).getFirstName().equals(name)){
                 customers.get(i).setFirstName(firstName);
                 customers.get(i).setLastName(lastName);
                 customers.get(i).setAddress(address);
             }
         }
+        StringBuilder text = new StringBuilder();
         for (Customer c: customers){
-            fileWriter.write(c.getFirstName());
-            fileWriter.write(c.getLastName());
-            fileWriter.write(c.getAddress());
-            fileWriter.write(c.getPhoneNumber());
-            fileWriter.write(c.getUserName());
-            fileWriter.write(c.getPassword());
+            text.append(c.getFirstName()).append("\n");
+            text.append(c.getLastName()).append("\n");
+            text.append(c.getAddress()).append("\n");
+            text.append(c.getPhoneNumber()).append("\n");
+            text.append(c.getCustomerID()).append("\n");
+            text.append(c.getPassword());
         }
+        Files.writeString(customerFile, text);
+//
     }
 
     }

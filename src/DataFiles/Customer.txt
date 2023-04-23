@@ -1,10 +1,9 @@
-Susan
-Test
-address
+test
+test
+test
 1231234123
 Customer1
-password
-Sandy
+passwordSandy
 Cheeks
 Binki Bottom
 1231231234
