@@ -191,7 +191,7 @@ public class User implements Serializable {
     }
 
     public void writeToCustomerFile(String firstName, String lastName, String address, String name) throws IOException{
-        Path customerFile = Path.of("C:\\PSU_One_Drive\\OneDrive - The Pennsylvania State University\\IST412\\Code\\Project\\ist412\\src\\DataFiles\\Customer.txt");
+        Path customerFile = Path.of("src/DataFiles/Customer.txt");
         //FileWriter fileWriter = new FileWriter(customerFile);
         ArrayList<Customer> customers = this.readFromCustomerFile();
         for (int i = 0; i <customers.size(); i++){
