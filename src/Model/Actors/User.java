@@ -16,10 +16,21 @@ public class User {
     /**
      * The Actors.User's phone number
      */
+    public int ID;
     private String phoneNumber;
     private String userName;
     private String pswd;
+
     private String position;
+    public User(String firstName, String lastName, String address, String phoneNumber, int ID) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.address = address;
+        this.ID = ID;
+        this.phoneNumber = phoneNumber;
+    }
+
+
 
     /**
      * Used to establish an Actors.User object
@@ -61,66 +72,35 @@ public class User {
         }
         return "";
     }
-    /**
-     *
-     * @return Actors.User's first name
-     */
+
     public String getFirstName() {
         return firstName;
     }
 
-    /**
-     * Sets the Actors.User's first name
-     * @param firstName
-     */
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
-    /**
-     *
-     * @return Actors.User's last name
-     */
     public String getLastName() {
         return lastName;
     }
 
-    /**
-     * Sets the Actors.User's last name
-     * @param lastName
-     */
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
-    /**
-     *
-     * @return address
-     */
     public String getAddress() {
         return address;
     }
 
-    /**
-     * Sets the Actors.User's address
-     * @param address
-     */
     public void setAddress(String address) {
         this.address = address;
     }
 
-    /**
-     *
-     * @return phoneNumber
-     */
     public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    /**
-     * Sets the Actors.User's phone number
-     * @param phoneNumber
-     */
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
@@ -129,13 +109,26 @@ public class User {
         return userName;
     }
 
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
     public String getPswd() {
         return pswd;
     }
 
-    public String getPosition() {
-        return position;
+    public void setPswd(String pswd) {
+        this.pswd = pswd;
     }
+
+    public int getID() {
+        return ID;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
+    }
+
     public static class UserBuilder{
         private final String firstName;
         private final String lastName;

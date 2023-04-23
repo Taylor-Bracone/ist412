@@ -24,8 +24,8 @@ public class Customer extends User implements Observer {
     }
 
     public Customer(User user, String userName) {
-        super(user.getFirstName(), user.getLastName(), user.getAddress(), user.getPhoneNumber());
-        this.customerID = userName;
+        super(user.getFirstName(), user.getLastName(), user.getAddress(), user.getPhoneNumber(), user.getID());
+        this.userName = userName;
     }
 
     /**
@@ -40,7 +40,7 @@ public class Customer extends User implements Observer {
      *
      * @param customerID
      */
-    public void setCustomerID(String customerID) {
+    public void setCustomerID(int customerID) {
         this.customerID = customerID;
     }
 

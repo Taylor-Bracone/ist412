@@ -38,7 +38,7 @@ public class RestaurantListController {
         menuItems1.add(item2);
         Menu menu = new Menu("Menu1", menuItems1);
         Restaurant r1 = new Restaurant("Restaurant1", new RestaurantOwner("Kim", "Winters", "123", "123"),
-                123, 123, "email", menu);
+                123, "123-456-7890", "email", menu);
 
         restaurantList.add(r1);
 
