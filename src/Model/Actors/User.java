@@ -208,10 +208,10 @@ public class User implements Serializable {
             text.append(c.getAddress()).append("\n");
             text.append(c.getPhoneNumber()).append("\n");
             text.append(c.getCustomerID()).append("\n");
-            text.append(c.getPassword());
+            text.append(c.getPassword()).append("\n");
         }
         Files.writeString(customerFile, text);
-//
+
     }
 
     }
