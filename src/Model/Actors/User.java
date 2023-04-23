@@ -147,7 +147,7 @@ public class User {
             this.lastName = lastName;
         }
 
-        public UserBuilder adddress (String address){
+        public UserBuilder address (String address){
             this.address = address;
             return this;
         }
