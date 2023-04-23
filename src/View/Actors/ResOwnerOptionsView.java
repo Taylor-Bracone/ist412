@@ -21,6 +21,7 @@ public class ResOwnerOptionsView extends JFrame implements ActionListener {
     private JButton btn_select, btn_exit;
     private RestaurantOwner restaurantOwner;
 
+
     public ResOwnerOptionsView(RestaurantOwner restaurantOwner){
         initCompts();
         setVisible(true);
@@ -48,7 +49,7 @@ public class ResOwnerOptionsView extends JFrame implements ActionListener {
         add(buttonPanel, BorderLayout.SOUTH);
     }
 
-    private void switchView(int choice, Customer customer){
+    private void switchView(int choice, RestaurantOwner restaurantOwner){
         setVisible(false);
         switch(choice) {
             case 0:
