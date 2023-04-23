@@ -1,10 +1,14 @@
 package Model.Actors;
 import Model.Restaurant.*;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Customer extends User implements Observer {
-    private int customerID;
+    private String customerID;
+    private String password;
     private String userName;
     private ArrayList<Cuisine> preferredCuisines = new ArrayList<>();
     //cuisine would go here
@@ -18,29 +22,34 @@ public class Customer extends User implements Observer {
      * @param phoneNumber
      * @param customerID
      */
-    public Customer(String firstName, String lastName, String address, String phoneNumber, int customerID) {
+    public Customer(String firstName, String lastName, String address, String phoneNumber, String customerID, String password) {
         super(firstName, lastName, address, phoneNumber);
         this.customerID = customerID;
+        this.password = password;
     }
 
     public Customer(User user, String userName) {
-        super(user.getFirstName(), user.getLastName(), user.getAddress(), user.getPhoneNumber(), user.getID());
+        super(user.getFirstName(), user.getLastName(), user.getAddress(), user.getPhoneNumber());
         this.userName = userName;
     }
 
-    /**
-     * @return customerID
-     */
-    public int getCustomerID() {
-        return customerID;
+    public Customer(){
+        super();
     }
 
-    /**
-     * Sets the Actors.Customer's ID
-     *
-     * @param customerID
-     */
-    public void setCustomerID(int customerID) {
+    @Override
+    public String getUserName() {
+        return userName;
+    }
+
+    public String getCustomerID() {
+        return customerID;
+    }
+    public String getPassword(){
+        return password;
+    }
+
+    public void setCustomerID(String customerID) {
         this.customerID = customerID;
     }
 
@@ -73,6 +82,14 @@ public class Customer extends User implements Observer {
             System.out.println(myRestaurants.get(i).getRestaurantName());
         }
     }
+
+    @Override
+    public String toString(){
+        StringBuilder sb = new StringBuilder();
+        sb.append(getUserName()).append(getFirstName());
+         return sb.toString();
+    }
+
 }
 
 

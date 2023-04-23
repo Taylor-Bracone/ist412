@@ -11,6 +11,7 @@ import Model.Restaurant.Restaurant;
 import View.Actors.CustomerOrderView;
 import View.ShoppingCartView;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 
@@ -19,7 +20,7 @@ public class CustomerController {
     private RestaurantListController restaurantListController;
     private RestaurantController restaurantController;
     private ArrayList<Restaurant> restaurants;
-    private Customer customer;
+    private Customer customer = new Customer();
     /**
      * handles all logic for customer, has methods for everything the customer can do
      */
@@ -52,8 +53,9 @@ public class CustomerController {
         }
     }
 
-    public void updateCustomerAccount(String firstName, String lastName, String address){
+    public void updateCustomerAccount(String firstName, String lastName, String address) throws IOException {
         //customer can update their account information
+        customer.writeToCustomerFile(firstName, lastName, address);
         System.out.println("Your information was updated");
         System.out.println(firstName + " " + lastName + " " + address);
     }

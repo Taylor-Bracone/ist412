@@ -63,18 +63,8 @@ public class CustomerOrderView extends JFrame implements ActionListener {
                 break;
 
             case 2:
-                //TODO: make a new view for this
-                System.out.println("Updating your account... ");
-                System.out.println("Enter your first name: ");
-                //String newFirstName = scanner.next();
+                UpdateCustomerAccountForm updateCustomerAccountForm = new UpdateCustomerAccountForm(customer);
 
-                System.out.println("Enter your last name: ");
-               // String newLastName = scanner.next();
-
-                System.out.println("Enter your address: ");
-                //String newAddress = scanner.next();
-
-                //customerController.updateCustomerAccount(newFirstName, newLastName, newAddress);
                 break;
 
             case 3:
