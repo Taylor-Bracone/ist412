@@ -45,10 +45,10 @@ public class RestaurantOrderView {
                 String restaurantName = scanner.next();
                 int restaurantID = 1; //needs to be auto generated
                 System.out.println("Please provide the restaurant's contact number.");
-                float restaurantContactNum = scanner.nextFloat();
+                String phoneNumber = scanner.next();
                 System.out.println("Please provide the restaurant's email.");
                 String restaurantEmail = scanner.next();
-                Restaurant newRestaurant = new Restaurant(restaurantName, restaurantOwner1, restaurantID, restaurantContactNum, restaurantEmail);
+                Restaurant newRestaurant = new Restaurant(restaurantName, restaurantOwner1, restaurantID, phoneNumber, restaurantEmail);
                 restaurantOwnerController.requestToBeAdded(newRestaurant);
                 System.out.println("Your request to be added has been submitted. " +
                         "Our admins will respond to your request within 1-3 business days.");
