@@ -7,6 +7,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class AuthView extends JFrame{
@@ -63,7 +65,11 @@ public class AuthView extends JFrame{
                 String username = userText.getText();
                 String password = new String(passwordText.getPassword());
 
-                login(username, password);
+                try {
+                    login(username, password);
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                }
                 setVisible(false);
 
             }
@@ -77,7 +83,7 @@ public class AuthView extends JFrame{
         });
 
     }
-    public void login(String userName, String password){
+    public void login(String userName, String password) throws IOException {
         User user = new User(userName, password);
         this.authController.login(user);
         setVisible(false);

@@ -9,6 +9,9 @@ import Model.Actors.RestaurantOwner;
 import Model.Actors.User;
 import View.AuthView;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
 public class AuthController {
     private AuthView authView;
     CustomerController customerController;
@@ -19,7 +22,7 @@ public class AuthController {
         this.authView = new AuthView(this);
     }
 
-    public void login(User user){
+    public void login(User user) throws IOException {
         String verifiedUser = user.verifyUser();
         if (verifiedUser.equals("Customer")){
             Customer customer = new Customer(user, user.getUserName());

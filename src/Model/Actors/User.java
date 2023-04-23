@@ -1,6 +1,10 @@
 package Model.Actors;
 
-public class User {
+import java.io.*;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class User implements Serializable {
     /**
      * The Actors.User's first name
      */
@@ -30,8 +34,6 @@ public class User {
         this.phoneNumber = phoneNumber;
     }
 
-
-
     /**
      * Used to establish an Actors.User object
      * @param firstName
@@ -50,6 +52,8 @@ public class User {
         this.userName = userName;
         this.pswd = pswd;
     }
+    public User(){
+    }
 
     private User(UserBuilder builder) {
         this.firstName = builder.firstName;
@@ -57,7 +61,7 @@ public class User {
         this.phoneNumber = builder.phoneNumber;
         this.address = builder.address;
     }
-    public String verifyUser(){
+   /* public String verifyUser(){
         String position = "";
         if (this.getUserName().equals("Customer1") && this.getPswd().equals("password")){
             position = "Customer";
@@ -71,6 +75,15 @@ public class User {
             return position;
         }
         return "";
+    }*/
+    public String verifyUser() throws IOException {
+        ArrayList<Customer> customer = this.readFromCustomerFile();
+        for (Customer c: customer){
+            if (this.getUserName().equals(c.getCustomerID()) && this.getPswd().equals(c.getPassword())){
+                return "Customer";
+            }
+        }
+        return null;
     }
 
     public String getFirstName() {
@@ -154,4 +167,46 @@ public class User {
             return user;
         }
     }
-}
+
+    public ArrayList<Customer> readFromCustomerFile() throws IOException {
+        File customerFile = new File("C:\\PSU_One_Drive\\OneDrive - The Pennsylvania State University\\IST412\\Code\\Project\\ist412\\src\\DataFiles\\Customer.txt");
+        BufferedReader bufReader = new BufferedReader(new FileReader(customerFile));
+        ArrayList<String> data = new ArrayList<>();
+        ArrayList<Customer> customerList = new ArrayList<>();
+        String line = bufReader.readLine();
+        while (line != null) {
+            data.add(line);
+            line = bufReader.readLine();
+        }
+        bufReader.close();
+        int index = 0;
+        for (int i = 0; i < (data.size()/6); i++) {
+                Customer customer = new Customer(data.get(index), data.get(index + 1), data.get(index + 2), data.get(index + 3), data.get(index + 4), data.get(index + 5));
+                customerList.add(customer);
+                index = index + 6;
+        }
+        return  customerList;
+    }
+
+    public void writeToCustomerFile(String firstName, String lastName, String address) throws IOException{
+        File customerFile = new File("C:\\PSU_One_Drive\\OneDrive - The Pennsylvania State University\\IST412\\Code\\Project\\ist412\\src\\DataFiles\\Customer.txt");
+        FileWriter fileWriter = new FileWriter(customerFile);
+        ArrayList<Customer> customers = this.readFromCustomerFile();
+        for (int i = 0; i <customers.size(); i++){
+            if (customers.get(i).getUserName() == userName){
+                customers.get(i).setFirstName(firstName);
+                customers.get(i).setLastName(lastName);
+                customers.get(i).setAddress(address);
+            }
+        }
+        for (Customer c: customers){
+            fileWriter.write(c.getFirstName());
+            fileWriter.write(c.getLastName());
+            fileWriter.write(c.getAddress());
+            fileWriter.write(c.getPhoneNumber());
+            fileWriter.write(c.getUserName());
+            fileWriter.write(c.getPassword());
+        }
+    }
+
+    }
