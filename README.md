@@ -29,7 +29,7 @@ Team-Member ID 	  Team-Member Name 	Percentage Efforts in Particular Assignment 
 
 ● apr5774         Ananya Reddy
 
-● tdb5457         Taylor Bracone
+● tdb5457         Taylor Bracone Cleanup/ refactored code
 
 
 
