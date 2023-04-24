@@ -1,5 +1,7 @@
 package Model.Actors;
 
+import Model.Restaurant.Restaurant;
+
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -209,6 +211,53 @@ public class User implements Serializable {
             text.append(c.getPhoneNumber()).append("\n");
             text.append(c.getCustomerID()).append("\n");
             text.append(c.getPassword()).append("\n");
+        }
+        Files.writeString(customerFile, text);
+
+    }
+
+    public ArrayList<RestaurantOwner> readFromRestaurantOwnerFile() throws IOException {
+        File resOwnerFile = new File("src/DataFiles/RestaurantOwner.txt");
+        BufferedReader bufReader = new BufferedReader(new FileReader(resOwnerFile));
+        ArrayList<String> data = new ArrayList<>();
+        ArrayList<RestaurantOwner> resOwnerList = new ArrayList<>();
+        String line = bufReader.readLine();
+        while (line != null) {
+            data.add(line);
+            line = bufReader.readLine();
+        }
+        bufReader.close();
+        int index = 0;
+        for (int i = 0; i < (data.size()/6); i++) {
+            //UNCOMMENT WHEN DONE EDITING TEXT FILE
+            //RestaurantOwner restaurantOwner = new RestaurantOwner(data.get(index), data.get(index + 1), data.get(index + 2), data.get(index + 3), data.get(index + 4), data.get(index + 5));
+            //resOwnerList.add(restaurantOwner);
+            index = index + 6;
+        }
+        return resOwnerList;
+    }
+
+
+    public void writeToResOwnerFile(String firstName, String lastName, String address, String name) throws IOException{
+        Path customerFile = Path.of("src/DataFiles/RestaurantOwner.txt");
+        //FileWriter fileWriter = new FileWriter(customerFile);
+        ArrayList<RestaurantOwner> resOwners = this.readFromRestaurantOwnerFile();
+        for (int i = 0; i <resOwners.size(); i++){
+            if (resOwners.get(i).getFirstName().equals(name)){
+                resOwners.get(i).setFirstName(firstName);
+                resOwners.get(i).setLastName(lastName);
+                resOwners.get(i).setAddress(address);
+            }
+        }
+        StringBuilder text = new StringBuilder();
+        for (RestaurantOwner ro: resOwners){
+            text.append(ro.getFirstName()).append("\n");
+            text.append(ro.getLastName()).append("\n");
+            text.append(ro.getAddress()).append("\n");
+            text.append(ro.getPhoneNumber()).append("\n");
+            //UNCOMMENT WHEN DONE EDITING TEXT FILE
+            //text.append(ro.getRestaurantOwnerID().append("\n");
+            //text.append(ro.getPassword()).append("\n");
         }
         Files.writeString(customerFile, text);
 
