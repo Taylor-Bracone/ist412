@@ -17,6 +17,22 @@ To login as a restaurant owner:
 
 ● Password = password
 
+Team-Member ID 	Team-Member Name 	Percentage Efforts in Particular Assignment 	Brief of Efforts in the Tasks Contribution
+khw5086         Kim Winters       30%			                                        Implemented Customer Updates Account Use Case, cleanup/refactored code
+mdt5340         Melisa Tasel
+rqs5899         Riley Surratt
+apr5774         Ananya Reddy
+tdb5457         Taylor Bracone
+
+
+
+
+
+
+
+
+
+
 ## Group Design Pattern Selections to Implement
 Taylor Bracone:  
 ● Observer Pattern -- helps with class interaction and limit need for code alteration --> Model > Actors (Customer), Restaurant (Cuisine, Observer, Restaurant, Model.Restaurant.RestaurantDataTest, RestaurantList, Model.Restaurant.RestaurantListTest, Subject, etc)
