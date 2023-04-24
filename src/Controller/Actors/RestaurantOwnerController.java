@@ -10,6 +10,7 @@ import Model.Restaurant.Food;
 import Model.Restaurant.Menu;
 import Model.Restaurant.MenuItemInterface;
 import Model.Restaurant.Restaurant;
+import View.Restaurant.MenuView;
 import View.Restaurant.RestaurantOrderView;
 
 import java.util.ArrayList;
@@ -29,6 +30,7 @@ public class RestaurantOwnerController {
     private RestaurantOwner restaurantOwner;
     private ArrayList<Restaurant> pendingRestaurantAcceptList = new ArrayList<>();
     private ArrayList<RestaurantOperator> restaurantOperators = new ArrayList<>();
+    private MenuView menuView;
     Scanner scanner = new Scanner(System.in);
 
     public RestaurantOwnerController(){
@@ -49,6 +51,14 @@ public class RestaurantOwnerController {
         this.restaurantOwner = restaurantOwner;
     }
 
+    /*
+    public void viewMenu(Restaurant restaurant){
+        System.out.println("Showing " + restaurant.getRestaurantName() + " menu");
+        menuView = new MenuView(restaurantOwner, restaurant);
+        menuView.showMenu(restaurant);
+    }
+
+     */
     public void requestToBeAdded(Restaurant restaurant){
         // writes a 'request' to be added to the pending restaurant list
         this.pendingRestaurantAcceptList.add(restaurant);
