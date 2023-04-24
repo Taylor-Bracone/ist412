@@ -27,7 +27,7 @@ public class User implements Serializable {
     public int ID;
     private String phoneNumber;
     private String userName;
-    private String pswd;
+    private String password;
 
     private String position;
     public User(String firstName, String lastName, String address, String phoneNumber, int ID) {
@@ -52,9 +52,9 @@ public class User implements Serializable {
         this.phoneNumber = phoneNumber;
     }
 
-    public User (String userName, String pswd){
+    public User (String userName, String password){
         this.userName = userName;
-        this.pswd = pswd;
+        this.password = password;
     }
     public User(){
     }
@@ -65,11 +65,18 @@ public class User implements Serializable {
         this.phoneNumber = builder.phoneNumber;
         this.address = builder.address;
     }
+
     public String verifyUser() throws IOException {
         ArrayList<Customer> customer = this.readFromCustomerFile();
         for (Customer c: customer){
-            if (this.getUserName().equals(c.getCustomerID()) && this.getPswd().equals(c.getPassword())){
+            if (this.getUserName().equals(c.getCustomerID()) && this.getPassword().equals(c.getPassword())){
                 return "Customer";
+            }
+        }
+        ArrayList<Deliverer> deliverer = this.readFromDelivererFile();
+        for (Deliverer d: deliverer){
+            if (this.getUserName().equals(d.getUserName()) && this.getPassword().equals(d.getPassword())){
+                return "Deliverer";
             }
         }
         ArrayList<RestaurantOwner> restaurantOwner = this.readFromRestaurantOwnerFile();
@@ -120,12 +127,12 @@ public class User implements Serializable {
 
 
 
-    public String getPswd() {
-        return pswd;
+    public String getPassword() {
+        return password;
     }
 
-    public void setPswd(String pswd) {
-        this.pswd = pswd;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public int getID() {
@@ -171,7 +178,7 @@ public class User implements Serializable {
     }
 
     public ArrayList<Customer> readFromCustomerFile() throws IOException {
-        File customerFile = new File("C:\\PSU_One_Drive\\OneDrive - The Pennsylvania State University\\IST412\\Code\\Project\\ist412\\src\\DataFiles\\Customer.txt");
+        File customerFile = new File("src/DataFiles/Customer.txt");
         BufferedReader bufReader = new BufferedReader(new FileReader(customerFile));
         ArrayList<String> data = new ArrayList<>();
         ArrayList<Customer> customerList = new ArrayList<>();
@@ -191,7 +198,7 @@ public class User implements Serializable {
     }
 
     public void writeToCustomerFile(String firstName, String lastName, String address, String name) throws IOException{
-        Path customerFile = Path.of("C:\\PSU_One_Drive\\OneDrive - The Pennsylvania State University\\IST412\\Code\\Project\\ist412\\src\\DataFiles\\Customer.txt");
+        Path customerFile = Path.of("src/DataFiles/Customer.txt");
         //FileWriter fileWriter = new FileWriter(customerFile);
         ArrayList<Customer> customers = this.readFromCustomerFile();
         for (int i = 0; i <customers.size(); i++){
@@ -211,13 +218,12 @@ public class User implements Serializable {
             text.append(c.getPassword()).append("\n");
         }
         Files.writeString(customerFile, text);
-
     }
 
     public Restaurant restaurant1 = new Restaurant("Yallah");
 
     public ArrayList<RestaurantOwner> readFromRestaurantOwnerFile() throws IOException {
-        File resOwnerFile = new File("C:\\PSU_One_Drive\\OneDrive - The Pennsylvania State University\\IST412\\Code\\Project\\ist412\\src\\DataFiles\\RestaurantOwner.txt");
+        File resOwnerFile = new File("src/DataFiles/RestaurantOwner.txt");
         BufferedReader bufReader = new BufferedReader(new FileReader(resOwnerFile));
         ArrayList<String> data = new ArrayList<>();
         ArrayList<RestaurantOwner> resOwnerList = new ArrayList<>();
@@ -237,9 +243,8 @@ public class User implements Serializable {
         return resOwnerList;
     }
 
-
     public void writeToResOwnerFile(String firstName, String lastName, String address, String name) throws IOException{
-        Path customerFile = Path.of("C:\\PSU_One_Drive\\OneDrive - The Pennsylvania State University\\IST412\\Code\\Project\\ist412\\src\\DataFiles\\RestaurantOwner.txt");
+        Path customerFile = Path.of("src/DataFiles/RestaurantOwner.txt");
         //FileWriter fileWriter = new FileWriter(customerFile);
         ArrayList<RestaurantOwner> resOwners = this.readFromRestaurantOwnerFile();
         for (int i = 0; i <resOwners.size(); i++){
@@ -249,6 +254,7 @@ public class User implements Serializable {
                 resOwners.get(i).setAddress(address);
             }
         }
+
         StringBuilder text = new StringBuilder();
         for (RestaurantOwner ro: resOwners){
             text.append(ro.getFirstName()).append("\n");
@@ -259,7 +265,26 @@ public class User implements Serializable {
             text.append(ro.getPassword()).append("\n");
         }
         Files.writeString(customerFile, text);
-
     }
 
+    public ArrayList<Deliverer> readFromDelivererFile() throws IOException {
+        File delivererFile = new File("src/DataFiles/Deliverer.txt");
+        BufferedReader bufReader = new BufferedReader(new FileReader(delivererFile));
+        ArrayList<String> data = new ArrayList<>();
+        ArrayList<Deliverer> delivererList = new ArrayList<>();
+        String line = bufReader.readLine();
+        while (line != null) {
+            data.add(line);
+            line = bufReader.readLine();
+        }
+        bufReader.close();
+        int index = 0;
+        for (int i = 0; i < (data.size()/6); i++) {
+            Deliverer deliverer = new Deliverer(data.get(index), data.get(index + 1), data.get(index + 2), data.get(index + 3),
+                    data.get(index + 4), data.get(index + 5), data.get(index + 6), data.get(index + 7));
+            delivererList.add(deliverer);
+            index = index + 6;
+        }
+        return delivererList;
     }
+}

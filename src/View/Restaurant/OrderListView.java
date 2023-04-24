@@ -14,7 +14,6 @@ public class OrderListView extends JFrame {
     private JTable orderListTable;
     private DefaultTableModel model;
 
-
     public OrderListView() {
         setTitle("Order List View");
         setLocationRelativeTo(null);
