@@ -29,7 +29,7 @@ public class AuthController {
             this.customerController = new CustomerController(customer);
         } else if(verifiedUser.equals("Restaurant Owner")){
             RestaurantOwner restaurantOwner = new RestaurantOwner(user, user.getUserName());
-            this.restaurantOwnerController = new RestaurantOwnerController(user);
+            this.restaurantOwnerController = new RestaurantOwnerController(restaurantOwner);
         } else if(verifiedUser.equals("Deliverer")){
             Deliverer deliverer = new Deliverer(user);
             this.delivererController = new DelivererController(deliverer);
