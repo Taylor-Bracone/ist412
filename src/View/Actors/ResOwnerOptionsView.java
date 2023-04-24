@@ -54,7 +54,8 @@ public class ResOwnerOptionsView extends JFrame implements ActionListener {
         switch(choice) {
             case 0:
                 Restaurant restaurant = restaurantOwner.getRestaurant();
-                menuView = new MenuView(restaurantOwner, restaurant);
+                //resOwnerController.viewMenu(restaurant);
+                //menuView = new MenuView(restaurantOwner, restaurant);
                 break;
 
             case 1:
