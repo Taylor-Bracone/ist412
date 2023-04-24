@@ -4,6 +4,7 @@ import Controller.Actors.CustomerController;
 import Controller.Actors.RestaurantOwnerController;
 import Model.Actors.Customer;
 import Model.Actors.RestaurantOwner;
+import Model.Actors.User;
 import Model.Restaurant.Restaurant;
 import View.Restaurant.MenuView;
 import View.Restaurant.RestaurantListView;
@@ -12,6 +13,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.util.ArrayList;
 
 public class ResOwnerOptionsView extends JFrame implements ActionListener {
     private RestaurantOwnerController resOwnerController = new RestaurantOwnerController();
@@ -20,7 +23,6 @@ public class ResOwnerOptionsView extends JFrame implements ActionListener {
     private JList<String> optionsList;
     private JButton btn_select, btn_exit;
     private RestaurantOwner restaurantOwner;
-
 
     public ResOwnerOptionsView(RestaurantOwner restaurantOwner){
         initCompts();
@@ -49,13 +51,23 @@ public class ResOwnerOptionsView extends JFrame implements ActionListener {
         add(buttonPanel, BorderLayout.SOUTH);
     }
 
-    private void switchView(int choice, RestaurantOwner restaurantOwner){
+    private Restaurant getRestaurant(RestaurantOwner restaurantOwner) throws IOException {
+        User user = new User();
+        ArrayList<RestaurantOwner> list = user.readFromRestaurantOwnerFile();
+        for (RestaurantOwner ro : list){
+            if (restaurantOwner.getRestaurantOwnerID().equals(ro.getRestaurantOwnerID())){
+                return ro.getRestaurant();
+            }
+        }
+        return null;
+    }
+    private void switchView(int choice, RestaurantOwner restaurantOwner) throws IOException {
         setVisible(false);
         switch(choice) {
             case 0:
-                Restaurant restaurant = restaurantOwner.getRestaurant();
-                //resOwnerController.viewMenu(restaurant);
-                //menuView = new MenuView(restaurantOwner, restaurant);
+                Restaurant restaurant = this.getRestaurant(this.restaurantOwner);
+                menuView = new MenuView(restaurantOwner,restaurant);
+                menuView.showMenu(restaurant);
                 break;
 
             case 1:
@@ -72,8 +84,11 @@ public class ResOwnerOptionsView extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == btn_select){
             int index = optionsList.getSelectedIndex();
-            //TODO
-            //switchView(index, customer);
+            try {
+                switchView(index, restaurantOwner);
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
         }
 
         if (e.getSource() == btn_exit){

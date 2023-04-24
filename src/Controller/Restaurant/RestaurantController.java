@@ -43,7 +43,6 @@ public class RestaurantController {
     }
 
     public void orderFromMenu(Restaurant restaurant, Customer customer){
-        System.out.println("Showing " + restaurant.getRestaurantName() + " menu");
         menuView = new MenuView(restaurant, customer);
         menuView.showMenu(restaurant);
     }

@@ -25,9 +25,6 @@ public class RestaurantListView extends JFrame implements ActionListener {
    private RestaurantListController restaurantListController = new RestaurantListController();
    private RestaurantController restaurantController = new RestaurantController();
 
-   public static void main(String[] args) {
-      RestaurantListView restaurantListView = new RestaurantListView(new Customer(new User("test", "test"), "test"));
-   }
    public RestaurantListView(){
       initCompts();
    }
@@ -47,7 +44,6 @@ public class RestaurantListView extends JFrame implements ActionListener {
       restaurantTable = new JTable(restaurantTableModel);
       JScrollPane restScrollPane = new JScrollPane(restaurantTable);
       ArrayList<Restaurant> restList = restaurantListController.viewRestaurantList();
-      System.out.println(restList.get(0).getRestaurantName());
       for (int i = 0; i < restList.size(); i++){
          Vector row = new Vector();
          row.add(i);
@@ -67,14 +63,6 @@ public class RestaurantListView extends JFrame implements ActionListener {
       add(restScrollPane, BorderLayout.NORTH);
 
       setVisible(true);
-   }
-
-   public void sysAdminView(SysAdmin sysAdmin){
-       //sysAdmin sees all restaurants registered in the system
-   }
-
-   public void sysAdminViewPending (SysAdmin sysAdmin){
-       //sysAdmin sees all restaurants wanting to be added to system
    }
 
    @Override

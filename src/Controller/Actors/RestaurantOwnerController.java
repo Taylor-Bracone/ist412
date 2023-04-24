@@ -46,25 +46,6 @@ public class RestaurantOwnerController {
         this.resOwnerOptionsView = new ResOwnerOptionsView(restaurantOwner);
     }
 
-    /*
-    public RestaurantOwnerController(RestaurantOwner restaurantOwner){
-        this.restaurantOrderView = new RestaurantOrderView(restaurantOwner);
-        this.restaurantListController = new RestaurantListController();
-        this.restaurantController = new RestaurantController(restaurantOwner);
-        this.restaurants = restaurantListController.viewRestaurantList();
-        this.restaurantOwner = restaurantOwner;
-        }
-     */
-
-
-    /*
-    public void viewMenu(Restaurant restaurant){
-        System.out.println("Showing " + restaurant.getRestaurantName() + " menu");
-        menuView = new MenuView(restaurantOwner, restaurant);
-        menuView.showMenu(restaurant);
-    }
-
-     */
     public void requestToBeAdded(Restaurant restaurant){
         // writes a 'request' to be added to the pending restaurant list
         this.pendingRestaurantAcceptList.add(restaurant);
@@ -93,12 +74,6 @@ public class RestaurantOwnerController {
         menuItemController.createMenuItem(restaurant, foodItem);
     }
 
-    /*
-    public void updateMenu(Restaurant restaurant, Menu menu){
-        //updates menu
-    }
-
-     */
 
     public void updateMenuItem(Restaurant restaurant, Menu menu, MenuItemInterface menuItem){
         //updates menu item

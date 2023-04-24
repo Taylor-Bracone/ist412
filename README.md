@@ -13,13 +13,15 @@ To login in as a customer:
 
 To login as a restaurant owner:  
 
-● userName = Restaurant Owner   
+● userName = Owner1   
 
 ● Password = password
 
+*File paths are set to absolute file path, need to be changed to local file path*
+
 Team-Member ID 	  Team-Member Name 	Percentage Efforts in Particular Assignment 	Brief of Efforts in the Tasks Contribution
 
-● khw5086         Kim Winters       30%			                                       Implemented Customer Updates Account Use Case, cleanup/refactored code
+● khw5086         Kim Winters       40%			                                       Implemented Customer Updates Account Use Case, Restuarnt Menu View, cleanup/refactored code
 
 ● mdt5340         Melisa Tasel
 

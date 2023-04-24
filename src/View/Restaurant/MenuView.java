@@ -90,6 +90,11 @@ public class MenuView extends JFrame implements ActionListener{
 
     public void showMenu (Restaurant restaurant){
         menuLabel.setText(restaurant.getRestaurantName());
+        if (restaurant.getFoodOptions() == null){
+            menuLabel.setText("No Menu Added");
+            this.setVisible(true);
+            return;
+        }
         for (Food item: restaurant.getFoodOptions().getMenuItemsList()){
             Vector row = new Vector();
             row.add(item.name());

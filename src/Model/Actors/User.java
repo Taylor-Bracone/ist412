@@ -65,21 +65,6 @@ public class User implements Serializable {
         this.phoneNumber = builder.phoneNumber;
         this.address = builder.address;
     }
-   /* public String verifyUser(){
-        String position = "";
-        if (this.getUserName().equals("Customer1") && this.getPswd().equals("password")){
-            position = "Customer";
-            return position;
-        } else if (this.getUserName().equals("Deliverer1") && this.getPswd().equals("password")){
-            position = "Deliverer";
-            return position;
-        }
-        else if(this.getUserName().equals("Restaurant Owner") && this.getPswd().equals("password")){
-            position = "Restaurant Owner";
-            return position;
-        }
-        return "";
-    }*/
     public String verifyUser() throws IOException {
         ArrayList<Customer> customer = this.readFromCustomerFile();
         for (Customer c: customer){
@@ -87,6 +72,13 @@ public class User implements Serializable {
                 return "Customer";
             }
         }
+        ArrayList<RestaurantOwner> restaurantOwner = this.readFromRestaurantOwnerFile();
+        for (RestaurantOwner r : restaurantOwner){
+            if (this.getUserName().equals(r.getRestaurantOwnerID()) && this.getPswd().equals(r.getPassword())){
+                return "Restaurant Owner";
+            }
+        }
+
         return "";
     }
 
@@ -126,9 +118,7 @@ public class User implements Serializable {
         return userName;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
+
 
     public String getPswd() {
         return pswd;
@@ -144,6 +134,14 @@ public class User implements Serializable {
 
     public void setID(int ID) {
         this.ID = ID;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public void setPosition(String position) {
+        this.position = position;
     }
 
     public static class UserBuilder{
@@ -173,7 +171,7 @@ public class User implements Serializable {
     }
 
     public ArrayList<Customer> readFromCustomerFile() throws IOException {
-        File customerFile = new File("src/DataFiles/Customer.txt");
+        File customerFile = new File("C:\\PSU_One_Drive\\OneDrive - The Pennsylvania State University\\IST412\\Code\\Project\\ist412\\src\\DataFiles\\Customer.txt");
         BufferedReader bufReader = new BufferedReader(new FileReader(customerFile));
         ArrayList<String> data = new ArrayList<>();
         ArrayList<Customer> customerList = new ArrayList<>();
@@ -193,7 +191,7 @@ public class User implements Serializable {
     }
 
     public void writeToCustomerFile(String firstName, String lastName, String address, String name) throws IOException{
-        Path customerFile = Path.of("src/DataFiles/Customer.txt");
+        Path customerFile = Path.of("C:\\PSU_One_Drive\\OneDrive - The Pennsylvania State University\\IST412\\Code\\Project\\ist412\\src\\DataFiles\\Customer.txt");
         //FileWriter fileWriter = new FileWriter(customerFile);
         ArrayList<Customer> customers = this.readFromCustomerFile();
         for (int i = 0; i <customers.size(); i++){
@@ -219,7 +217,7 @@ public class User implements Serializable {
     public Restaurant restaurant1 = new Restaurant("Yallah");
 
     public ArrayList<RestaurantOwner> readFromRestaurantOwnerFile() throws IOException {
-        File resOwnerFile = new File("src/DataFiles/RestaurantOwner.txt");
+        File resOwnerFile = new File("C:\\PSU_One_Drive\\OneDrive - The Pennsylvania State University\\IST412\\Code\\Project\\ist412\\src\\DataFiles\\RestaurantOwner.txt");
         BufferedReader bufReader = new BufferedReader(new FileReader(resOwnerFile));
         ArrayList<String> data = new ArrayList<>();
         ArrayList<RestaurantOwner> resOwnerList = new ArrayList<>();
@@ -241,7 +239,7 @@ public class User implements Serializable {
 
 
     public void writeToResOwnerFile(String firstName, String lastName, String address, String name) throws IOException{
-        Path customerFile = Path.of("src/DataFiles/RestaurantOwner.txt");
+        Path customerFile = Path.of("C:\\PSU_One_Drive\\OneDrive - The Pennsylvania State University\\IST412\\Code\\Project\\ist412\\src\\DataFiles\\RestaurantOwner.txt");
         //FileWriter fileWriter = new FileWriter(customerFile);
         ArrayList<RestaurantOwner> resOwners = this.readFromRestaurantOwnerFile();
         for (int i = 0; i <resOwners.size(); i++){
