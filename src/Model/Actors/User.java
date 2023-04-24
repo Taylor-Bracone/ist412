@@ -81,7 +81,7 @@ public class User implements Serializable {
         }
         ArrayList<RestaurantOwner> restaurantOwner = this.readFromRestaurantOwnerFile();
         for (RestaurantOwner r : restaurantOwner){
-            if (this.getUserName().equals(r.getRestaurantOwnerID()) && this.getPswd().equals(r.getPassword())){
+            if (this.getUserName().equals(r.getRestaurantOwnerID()) && this.getPassword().equals(r.getPassword())){
                 return "Restaurant Owner";
             }
         }
