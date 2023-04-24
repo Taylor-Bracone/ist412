@@ -7,10 +7,14 @@ import Model.Actors.Customer;
 import Model.Actors.Deliverer;
 import Model.Actors.RestaurantOwner;
 import Model.Actors.User;
+import Model.Restaurant.Order;
+import Model.Restaurant.OrderList;
+import Model.Restaurant.Restaurant;
 import View.AuthView;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class AuthController {
     private AuthView authView;
@@ -31,8 +35,19 @@ public class AuthController {
             RestaurantOwner restaurantOwner = new RestaurantOwner(user, user.getUserName());
             this.restaurantOwnerController = new RestaurantOwnerController(user);
         } else if(verifiedUser.equals("Deliverer")){
-            Deliverer deliverer = new Deliverer(user);
+            Deliverer deliverer = user.readFromDelivererFile().get(0);
+            Customer customer = user.readFromCustomerFile().get(0);
+
+            RestaurantOwner restaurantOwner = new RestaurantOwner("Emily", "Test", "234 Town Square", "111-222-3333" );
+            Restaurant restaurant = new Restaurant("Yallah",restaurantOwner, 123, "1112223333", "test@test.com");
+
+            Order order = new Order(customer, restaurant);
+            order.setDeliverer(deliverer); // deliverer should be assigned to order by SysAdmin
+            order.setStatus("pending");
+            OrderList.addItem(order);
+
             this.delivererController = new DelivererController(deliverer);
+
         }
         else{
             System.out.println("Invalid login");

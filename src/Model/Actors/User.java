@@ -1,12 +1,9 @@
 package Model.Actors;
 
-import Model.Restaurant.Restaurant;
-
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class User implements Serializable {
     /**
@@ -27,9 +24,8 @@ public class User implements Serializable {
     public int ID;
     private String phoneNumber;
     private String userName;
-    private String pswd;
+    private String password;
 
-    private String position;
     public User(String firstName, String lastName, String address, String phoneNumber, int ID) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -52,9 +48,9 @@ public class User implements Serializable {
         this.phoneNumber = phoneNumber;
     }
 
-    public User (String userName, String pswd){
+    public User (String userName, String password){
         this.userName = userName;
-        this.pswd = pswd;
+        this.password = password;
     }
     public User(){
     }
@@ -65,26 +61,18 @@ public class User implements Serializable {
         this.phoneNumber = builder.phoneNumber;
         this.address = builder.address;
     }
-   /* public String verifyUser(){
-        String position = "";
-        if (this.getUserName().equals("Customer1") && this.getPswd().equals("password")){
-            position = "Customer";
-            return position;
-        } else if (this.getUserName().equals("Deliverer1") && this.getPswd().equals("password")){
-            position = "Deliverer";
-            return position;
-        }
-        else if(this.getUserName().equals("Restaurant Owner") && this.getPswd().equals("password")){
-            position = "Restaurant Owner";
-            return position;
-        }
-        return "";
-    }*/
+
     public String verifyUser() throws IOException {
         ArrayList<Customer> customer = this.readFromCustomerFile();
         for (Customer c: customer){
-            if (this.getUserName().equals(c.getCustomerID()) && this.getPswd().equals(c.getPassword())){
+            if (this.getUserName().equals(c.getCustomerID()) && this.getPassword().equals(c.getPassword())){
                 return "Customer";
+            }
+        }
+        ArrayList<Deliverer> deliverer = this.readFromDelivererFile();
+        for (Deliverer d: deliverer){
+            if (this.getUserName().equals(d.getUserName()) && this.getPassword().equals(d.getPassword())){
+                return "Deliverer";
             }
         }
         return "";
@@ -130,12 +118,12 @@ public class User implements Serializable {
         this.userName = userName;
     }
 
-    public String getPswd() {
-        return pswd;
+    public String getPassword() {
+        return password;
     }
 
-    public void setPswd(String pswd) {
-        this.pswd = pswd;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public int getID() {
@@ -213,7 +201,6 @@ public class User implements Serializable {
             text.append(c.getPassword()).append("\n");
         }
         Files.writeString(customerFile, text);
-
     }
 
     public ArrayList<RestaurantOwner> readFromRestaurantOwnerFile() throws IOException {
@@ -237,7 +224,6 @@ public class User implements Serializable {
         return resOwnerList;
     }
 
-
     public void writeToResOwnerFile(String firstName, String lastName, String address, String name) throws IOException{
         Path customerFile = Path.of("src/DataFiles/RestaurantOwner.txt");
         //FileWriter fileWriter = new FileWriter(customerFile);
@@ -249,6 +235,7 @@ public class User implements Serializable {
                 resOwners.get(i).setAddress(address);
             }
         }
+
         StringBuilder text = new StringBuilder();
         for (RestaurantOwner ro: resOwners){
             text.append(ro.getFirstName()).append("\n");
@@ -260,7 +247,26 @@ public class User implements Serializable {
             //text.append(ro.getPassword()).append("\n");
         }
         Files.writeString(customerFile, text);
-
     }
 
+    public ArrayList<Deliverer> readFromDelivererFile() throws IOException {
+        File delivererFile = new File("src/DataFiles/Deliverer.txt");
+        BufferedReader bufReader = new BufferedReader(new FileReader(delivererFile));
+        ArrayList<String> data = new ArrayList<>();
+        ArrayList<Deliverer> delivererList = new ArrayList<>();
+        String line = bufReader.readLine();
+        while (line != null) {
+            data.add(line);
+            line = bufReader.readLine();
+        }
+        bufReader.close();
+        int index = 0;
+        for (int i = 0; i < (data.size()/6); i++) {
+            Deliverer deliverer = new Deliverer(data.get(index), data.get(index + 1), data.get(index + 2), data.get(index + 3),
+                    data.get(index + 4), data.get(index + 5), data.get(index + 6), data.get(index + 7));
+            delivererList.add(deliverer);
+            index = index + 6;
+        }
+        return delivererList;
     }
+}

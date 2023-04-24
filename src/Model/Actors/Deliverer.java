@@ -1,5 +1,11 @@
 package Model.Actors;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+
 public class Deliverer extends User {
 
     private String delivererID;
@@ -12,10 +18,12 @@ public class Deliverer extends User {
      * @param deliveryCompany
      */
     public Deliverer(String delivererID, String firstName, String lastName, String address, String phoneNumber,
-                     String deliveryCompany) {
+                     String deliveryCompany, String userName, String password) {
         super(firstName, lastName, address, phoneNumber);
         this.delivererID = delivererID;
         this.deliveryCompany = deliveryCompany;
+        super.setUserName(userName);
+        super.setPassword(password);
     }
 
     /**

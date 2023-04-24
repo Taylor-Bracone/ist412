@@ -1,6 +1,7 @@
 package View.Actors;
 
 import Controller.Actors.DelivererController;
+import Controller.Restaurant.OrderListController;
 import Model.Actors.Deliverer;
 
 import java.util.Scanner;
@@ -33,8 +34,10 @@ public class DeliveryOrderView {
     }
 
     public void viewCurrentAssignedOrder(){
-        System.out.println("Viewing your current assigned order... ");
-        delivererController.displayAssignedOrder(deliverer);
+//        System.out.println("Viewing your current assigned order... ");
+//        delivererController.displayAssignedOrder(deliverer);
+        OrderListController orderListController = new OrderListController();
+        orderListController.viewOrderList();
     }
 
     public void viewOrderHistory(){
