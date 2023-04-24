@@ -12,6 +12,8 @@ import Model.Restaurant.MenuItemInterface;
 import Model.Restaurant.Restaurant;
 import View.Restaurant.MenuView;
 import View.Restaurant.RestaurantOrderView;
+import View.Actors.ResOwnerOptionsView;
+
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -31,6 +33,7 @@ public class RestaurantOwnerController {
     private ArrayList<Restaurant> pendingRestaurantAcceptList = new ArrayList<>();
     private ArrayList<RestaurantOperator> restaurantOperators = new ArrayList<>();
     private MenuView menuView;
+    private ResOwnerOptionsView resOwnerOptionsView;
     Scanner scanner = new Scanner(System.in);
 
     public RestaurantOwnerController(){
@@ -39,17 +42,20 @@ public class RestaurantOwnerController {
         this.restaurants = restaurantListController.viewRestaurantList();
     }
 
-    public RestaurantOwnerController(User restaurantOwner){
-        this.restaurantOrderView = new RestaurantOrderView(restaurantOwner);
+    public RestaurantOwnerController(RestaurantOwner restaurantOwner){
+        this.resOwnerOptionsView = new ResOwnerOptionsView(restaurantOwner);
     }
 
+    /*
     public RestaurantOwnerController(RestaurantOwner restaurantOwner){
         this.restaurantOrderView = new RestaurantOrderView(restaurantOwner);
         this.restaurantListController = new RestaurantListController();
         this.restaurantController = new RestaurantController(restaurantOwner);
         this.restaurants = restaurantListController.viewRestaurantList();
         this.restaurantOwner = restaurantOwner;
-    }
+        }
+     */
+
 
     /*
     public void viewMenu(Restaurant restaurant){
