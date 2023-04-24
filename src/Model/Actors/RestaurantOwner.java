@@ -7,6 +7,9 @@ import Model.Restaurant.Restaurant;
 public class RestaurantOwner extends User{
     private Restaurant restaurant;
     private String restaurantOwnerID;
+    private String password;
+
+
 
     /**
      * Used to establish an Actors.User object
@@ -17,9 +20,11 @@ public class RestaurantOwner extends User{
      * @param phoneNumber
      */
 
-    public RestaurantOwner(String firstName, String lastName, String address, String phoneNumber, Restaurant restaurant) {
+    public RestaurantOwner(String firstName, String lastName, String address, String phoneNumber, Restaurant restaurant, String password, String ID) {
         super(firstName, lastName, address, phoneNumber);
         this.restaurant = restaurant;
+        this.password = password;
+        this.restaurantOwnerID = ID;
     }
     public RestaurantOwner(User user, String userName){
         super(user.getFirstName(), user.getLastName(), user.getAddress(), user.getPhoneNumber());
@@ -57,5 +62,21 @@ public class RestaurantOwner extends User{
 
     public void removeMenu (Menu menu, Restaurant restaurant){
         //remove menu from restaurant
+    }
+
+    public String getRestaurantOwnerID() {
+        return restaurantOwnerID;
+    }
+
+    public void setRestaurantOwnerID(String restaurantOwnerID) {
+        this.restaurantOwnerID = restaurantOwnerID;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

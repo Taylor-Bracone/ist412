@@ -216,6 +216,8 @@ public class User implements Serializable {
 
     }
 
+    public Restaurant restaurant1 = new Restaurant("Yallah");
+
     public ArrayList<RestaurantOwner> readFromRestaurantOwnerFile() throws IOException {
         File resOwnerFile = new File("src/DataFiles/RestaurantOwner.txt");
         BufferedReader bufReader = new BufferedReader(new FileReader(resOwnerFile));
@@ -229,9 +231,9 @@ public class User implements Serializable {
         bufReader.close();
         int index = 0;
         for (int i = 0; i < (data.size()/6); i++) {
-            //UNCOMMENT WHEN DONE EDITING TEXT FILE
-            //RestaurantOwner restaurantOwner = new RestaurantOwner(data.get(index), data.get(index + 1), data.get(index + 2), data.get(index + 3), data.get(index + 4), data.get(index + 5));
-            //resOwnerList.add(restaurantOwner);
+            RestaurantOwner restaurantOwner = new RestaurantOwner
+                    (data.get(index), data.get(index + 1), data.get(index + 2), data.get(index + 3), restaurant1, data.get(index + 5), data.get(index+6));
+            resOwnerList.add(restaurantOwner);
             index = index + 6;
         }
         return resOwnerList;
@@ -255,9 +257,8 @@ public class User implements Serializable {
             text.append(ro.getLastName()).append("\n");
             text.append(ro.getAddress()).append("\n");
             text.append(ro.getPhoneNumber()).append("\n");
-            //UNCOMMENT WHEN DONE EDITING TEXT FILE
-            //text.append(ro.getRestaurantOwnerID().append("\n");
-            //text.append(ro.getPassword()).append("\n");
+            text.append(ro.getRestaurantOwnerID()).append("\n");
+            text.append(ro.getPassword()).append("\n");
         }
         Files.writeString(customerFile, text);
 
