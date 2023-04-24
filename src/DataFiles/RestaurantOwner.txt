@@ -1,5 +1,12 @@
-firstName:Emily
-lastName:Test
-address:234 Town Square
-phoneNumber:111-222-3333
-ID:02
+Owner1
+Moore
+password
+1234 Fifth Ave
+444-555-6666
+Yallah
+Owner2
+Cherry
+password
+123 Second St
+111-222-3333
+Snap
