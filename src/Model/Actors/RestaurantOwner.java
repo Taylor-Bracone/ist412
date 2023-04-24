@@ -8,6 +8,7 @@ public class RestaurantOwner extends User{
     private Restaurant restaurant;
     private String restaurantOwnerID;
     private String password;
+    private String userName;
 
 
 
@@ -20,11 +21,12 @@ public class RestaurantOwner extends User{
      * @param phoneNumber
      */
 
-    public RestaurantOwner(String firstName, String lastName, String address, String phoneNumber, Restaurant restaurant, String password, String ID) {
+    public RestaurantOwner(String firstName, String lastName, String address, String phoneNumber, Restaurant restaurant, String password, String ID, String userName) {
         super(firstName, lastName, address, phoneNumber);
         this.restaurant = restaurant;
         this.password = password;
         this.restaurantOwnerID = ID;
+        this.userName = userName;
     }
     public RestaurantOwner(User user, String userName){
         super(user.getFirstName(), user.getLastName(), user.getAddress(), user.getPhoneNumber());
@@ -78,5 +80,15 @@ public class RestaurantOwner extends User{
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    @Override
+    public String getUserName() {
+        return userName;
+    }
+
+    @Override
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 }

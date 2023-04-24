@@ -232,7 +232,7 @@ public class User implements Serializable {
         int index = 0;
         for (int i = 0; i < (data.size()/6); i++) {
             RestaurantOwner restaurantOwner = new RestaurantOwner
-                    (data.get(index), data.get(index + 1), data.get(index + 2), data.get(index + 3), restaurant1, data.get(index + 5), data.get(index+6));
+                    (data.get(index), data.get(index + 1), data.get(index + 2), data.get(index + 3), restaurant1, data.get(index + 5), data.get(index+6), data.get(index+7));
             resOwnerList.add(restaurantOwner);
             index = index + 6;
         }
