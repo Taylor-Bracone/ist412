@@ -33,8 +33,8 @@ public class CustomerController {
         this.restaurantListController = new RestaurantListController();
         this.restaurantController = new RestaurantController(customer);
         this.restaurants = restaurantListController.viewRestaurantList();
-        this.customer = customer;
         this.orderView = new CustomerOrderView(customer);
+        this.customer = customer;
     }
     public void placeOrder(String restaurant, Customer customer){
         System.out.println("Ordering from " + restaurant);
@@ -54,10 +54,7 @@ public class CustomerController {
     }
 
     public void updateCustomerAccount(String firstName, String lastName, String address, String name) throws IOException {
-        //customer can update their account information
         customer.writeToCustomerFile(firstName, lastName, address, name);
-        System.out.println("Your information was updated");
-        System.out.println(firstName + " " + lastName + " " + address);
     }
 
 

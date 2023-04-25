@@ -29,7 +29,7 @@ public class AuthController {
     public void login(User user) throws IOException {
         String verifiedUser = user.verifyUser();
         if (verifiedUser.equals("Customer")){
-            Customer customer = new Customer(user, user.getUserName());
+            Customer customer = user.getCustomer(user.getUserName());
             this.customerController = new CustomerController(customer);
         } else if(verifiedUser.equals("Restaurant Owner")){
             RestaurantOwner restaurantOwner = new RestaurantOwner(user, user.getUserName());
