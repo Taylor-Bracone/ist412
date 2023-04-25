@@ -63,7 +63,7 @@ public class CustomerOrderView extends JFrame implements ActionListener {
                 break;
 
             case 2:
-                UpdateCustomerAccountForm updateCustomerAccountForm = new UpdateCustomerAccountForm(customer);
+                UpdateCustomerAccountForm updateCustomerAccountForm = new UpdateCustomerAccountForm(this.customer);
 
                 break;
 
