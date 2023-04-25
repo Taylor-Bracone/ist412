@@ -11,6 +11,8 @@ public class Customer extends User implements Observer {
     private String password;
     private String userName;
     private ArrayList<Cuisine> preferredCuisines = new ArrayList<>();
+    private ArrayList<Restaurant> myRestaurants = new ArrayList<>();
+
     //cuisine would go here
 
     /**
@@ -42,9 +44,6 @@ public class Customer extends User implements Observer {
         return userName;
     }
 
-    public String getCustomerID() {
-        return customerID;
-    }
     public String getPassword(){
         return password;
     }
@@ -53,25 +52,36 @@ public class Customer extends User implements Observer {
         this.customerID = customerID;
     }
 
+    public String getCustomerID() {
+        return customerID;
+    }
+
+    public ArrayList<Restaurant> getMyRestaurants() {
+        return myRestaurants;
+    }
+
+    public void setMyRestaurants(ArrayList<Restaurant> myRestaurants) {
+        this.myRestaurants = myRestaurants;
+    }
+
     /**
      * Creates an Restaurant.Order to associate to the Actors.Customer
      *
      * @param restaurant
-     * @param food
+     * @param customer
      * @return order
      */
-    public Order createOrder(Restaurant restaurant, String food) {
+    public Order createOrder(Customer customer, Restaurant restaurant) {
         //customer creates order
-        return null;
+        Order order = new Order(customer, restaurant);
+        return order;
     }
-
     public void setPreferredCuisine(Cuisine preferredCuisine) {
         this.preferredCuisines.add(preferredCuisine);
     }
 
     @Override
     public void update(RestaurantList rl) {
-        ArrayList<Restaurant> myRestaurants = new ArrayList<>();
         for (int i = 0; i < this.preferredCuisines.size(); i++) {
             for (int j = 0; j < rl.getRestaurantList().size(); j++) {
                 if (rl.getRestaurantList().get(j).getServingCuisines().contains(this.preferredCuisines.get(i)))
@@ -82,6 +92,7 @@ public class Customer extends User implements Observer {
             System.out.println(myRestaurants.get(i).getRestaurantName());
         }
     }
+
 
     @Override
     public String toString(){
