@@ -1,5 +1,8 @@
-package Model.Actors;
+package test.Model.Actors;
 
+import Model.Actors.Customer;
+import Model.Actors.RestaurantOwner;
+import Model.Actors.User;
 import Model.Restaurant.Cuisine;
 import Model.Restaurant.Order;
 import Model.Restaurant.Restaurant;
