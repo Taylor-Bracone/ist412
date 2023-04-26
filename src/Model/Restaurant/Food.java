@@ -7,6 +7,7 @@ public class Food implements MenuItemInterface {
     private Double price;
     private String description;
 
+    public Food(){};
     public Food (String name, Double price, String description) {
         this.name = name;
         this.price = price;

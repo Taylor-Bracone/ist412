@@ -1,12 +1,16 @@
 package View;
 
+import Controller.Restaurant.OrderController;
+import Model.Actors.Customer;
 import Model.Restaurant.Food;
+import Model.Restaurant.Restaurant;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.util.Vector;
 
 public class ShoppingCartView extends JFrame implements ActionListener {
@@ -14,8 +18,12 @@ public class ShoppingCartView extends JFrame implements ActionListener {
     private DefaultTableModel cartTableModel;
     private JButton addButton, removeButton, checkoutButton;
     private JLabel totalLabel;
+    private OrderController orderController = new OrderController();
+    private Customer customer = new Customer();
+    private Restaurant restaurant = new Restaurant();
+    private Food food = new Food();
 
-    public ShoppingCartView() {
+    public ShoppingCartView(Customer customer, Restaurant restaurant, Food item) {
         setTitle("Shopping Cart");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(500, 500);
@@ -51,6 +59,9 @@ public class ShoppingCartView extends JFrame implements ActionListener {
         checkoutButton.addActionListener(this);
 
         setVisible(true);
+        this.customer = customer;
+        this.restaurant = restaurant;
+        this.food = item;
     }
 
     public void addToCart(Food item){
@@ -72,11 +83,13 @@ public class ShoppingCartView extends JFrame implements ActionListener {
         if (e.getSource() == removeButton) {
             //Implement the remove button functionality
         } else if (e.getSource() == checkoutButton) {
-            new PaymentView();
+            //orderController.generateOrder(customer.getFirstName(), restaurant.getRestaurantName(), food.getName());
+            int numRows = cartTableModel.getRowCount();
+            for (int i = 0; i < numRows; i++){
+                cartTableModel.removeRow(i);
+            }
+            totalLabel.setText("Order was placed");
         }
     }
 
-    public static void main(String[] args) {
-        new ShoppingCartView();
-    }
 }
