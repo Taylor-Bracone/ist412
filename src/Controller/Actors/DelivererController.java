@@ -9,6 +9,8 @@ import Model.Restaurant.HistoricalOrderList;
 import Model.Restaurant.Restaurant;
 import View.Actors.DeliveryOrderView;
 
+import java.util.ArrayList;
+
 public class DelivererController {
     private DeliveryOrderView deliveryOrderView;
     private Deliverer deliverer;
@@ -21,8 +23,8 @@ public class DelivererController {
 
     }
 
-    public void displayAssignedOrder(Deliverer deliverer){
-        for (Order order : OrderList.getOrderList()) {
+    public void displayAssignedOrder(Deliverer deliverer, ArrayList<Order> orderArrayList){
+        for (Order order : orderArrayList) {
             if (order.getDeliverer().getDelivererID().equals(deliverer.getDelivererID())) {
                 System.out.println("Details of Your Assigned Delivery: ");
                 System.out.println("Customer Name: " + order.getCustomer().getFirstName() + " " + order.getCustomer().getLastName());

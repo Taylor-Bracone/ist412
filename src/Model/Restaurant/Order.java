@@ -3,22 +3,37 @@ package Model.Restaurant;
 import Model.Actors.Customer;
 import Model.Actors.Deliverer;
 
+import java.util.ArrayList;
+
 public class Order {
     private Customer customer;
     private Restaurant restaurant;
     private Deliverer deliverer;
     private String status;
     private boolean isValidOrder;
-    private MenuItemInterface item;
+    private ArrayList<MenuItem> items;
 
     public Order(Customer customer, Restaurant restaurant) {
         this.customer = customer;
         this.restaurant = restaurant;
     }
-    public Order(Customer customer, Restaurant restaurant, MenuItemInterface item) {
+    public Order(Customer customer, Restaurant restaurant, ArrayList<MenuItem> items) {
         this.customer = customer;
         this.restaurant = restaurant;
-        this.item = item;
+        this.items = items;
+    }
+
+    public Order(Customer customer, Restaurant restaurant, Deliverer deliverer) {
+        this.customer = customer;
+        this.restaurant = restaurant;
+        this.deliverer = deliverer;
+    }
+
+    public Order(Customer customer, Restaurant restaurant, Deliverer deliverer, ArrayList<MenuItem> items) {
+        this.customer = customer;
+        this.restaurant = restaurant;
+        this.deliverer = deliverer;
+        this.items = items;
     }
 
     public Deliverer getDeliverer() {
@@ -59,5 +74,26 @@ public class Order {
 
     public void setValidOrder(boolean validOrder) {
         isValidOrder = validOrder;
+    }
+
+    public String listItems(){
+        String list = "";
+        for (MenuItem item: this.items) {
+            list = list + item + "\n";
+        }
+        return list;
+    }
+
+    @Override
+    public String toString() {
+        String list = listItems();
+        return "Order{\n" +
+                "customer= " + customer.getFirstName() +
+                ", \nrestaurant= " + restaurant.getRestaurantName() +
+                ", \ndeliverer= " + deliverer.getDelivererID() +
+                ", \nstatus= '" + status + '\'' +
+                ", \nisValidOrder= " + isValidOrder +
+                ", \nitems= \n" + list +
+                '}';
     }
 }
