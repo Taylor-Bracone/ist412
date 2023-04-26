@@ -25,8 +25,8 @@ public class RestaurantOwner extends User{
         super(firstName, lastName, address, phoneNumber);
         this.restaurant = restaurant;
         this.password = password;
-        this.restaurantOwnerID = userName;
-        this.userName = ID;
+        this.restaurantOwnerID = ID;
+        this.userName = userName;
     }
     public RestaurantOwner(User user, String userName){
         super(user.getFirstName(), user.getLastName(), user.getAddress(), user.getPhoneNumber());

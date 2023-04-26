@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class Restaurant {
     private String restaurantName;
-    private RestaurantOwner restaurantOwnerName;
+    private RestaurantOwner ownerName;
     private int restaurantID;
     private String phoneNumber;
     private String restaurantEmail;
@@ -22,22 +22,22 @@ public class Restaurant {
         this.restaurantName = restaurantName;
         this.servingCuisines = new ArrayList<>();
     }
-    public Restaurant(String restaurantName, RestaurantOwner restaurantOwnerName,
+    public Restaurant(String restaurantName, RestaurantOwner ownerName,
                       int restaurantID, String phoneNumber,
                       String restaurantEmail) {
         this.restaurantName = restaurantName;
-        this.restaurantOwnerName = restaurantOwnerName;
+        this.ownerName = ownerName;
         this.restaurantID = restaurantID;
         this.phoneNumber = phoneNumber;
         this.restaurantEmail = restaurantEmail;
         this.servingCuisines = new ArrayList<>();
     }
 
-    public Restaurant(String restaurantName, RestaurantOwner restaurantOwnerName,
+    public Restaurant(String restaurantName, RestaurantOwner ownerName,
                       int restaurantID, String phoneNumber,
                       String restaurantEmail, Menu menu) {
         this.restaurantName = restaurantName;
-        this.restaurantOwnerName = restaurantOwnerName;
+        this.ownerName = ownerName;
         this.restaurantID = restaurantID;
         this.phoneNumber = phoneNumber;
         this.restaurantEmail = restaurantEmail;
@@ -53,12 +53,12 @@ public class Restaurant {
         this.restaurantName = restaurantName;
     }
 
-    public RestaurantOwner getRestaurantOwnerName() {
-        return restaurantOwnerName;
+    public RestaurantOwner getOwnerName() {
+        return ownerName;
     }
 
-    public void setRestaurantOwnerName(RestaurantOwner restaurantOwnerName) {
-        this.restaurantOwnerName = restaurantOwnerName;
+    public void setOwnerName(RestaurantOwner ownerName) {
+        this.ownerName = ownerName;
     }
 
     public int getRestaurantID() {
