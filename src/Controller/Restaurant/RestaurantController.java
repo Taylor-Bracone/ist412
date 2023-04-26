@@ -50,18 +50,10 @@ public class RestaurantController {
     public void orderItem(Restaurant restaurant, Customer customer, int o){
 
         Food itemOrdered = restaurant.getFoodOptions().getMenuItemsList().get(o);
-        this.addOrderToList(orderController.createOrder(restaurant, customer, itemOrdered));
-        ShoppingCartView shoppingCartView = new ShoppingCartView();
+        ShoppingCartView shoppingCartView = new ShoppingCartView(customer, restaurant, itemOrdered);
         shoppingCartView.addToCart(itemOrdered);
     }
 
-
-    public void addOrderToList(Order order){
-        System.out.println("Order has been added to the restaurant");
-
-        //I suggest adding this to be able to retrieve the added order
-        //OrderList.addItem(order);
-    }
 
     public void orderReady(Order order){
         //marks order as ready and initiates chain

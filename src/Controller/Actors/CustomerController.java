@@ -8,6 +8,7 @@ import Model.Restaurant.Food;
 import Model.Restaurant.Order;
 import Model.Restaurant.OrderList;
 import Model.Restaurant.Restaurant;
+import View.Actors.CustomerOrderHistory;
 import View.Actors.CustomerOrderView;
 import View.ShoppingCartView;
 
@@ -58,9 +59,8 @@ public class CustomerController {
     }
 
 
-    public void customerOrderHistory(Customer customer){
-        //reads from file to show all past orders for one customer
-        System.out.println("This is "+ customer.getCustomerID()+ " order history");
+    public void customerOrderHistory(Customer customer) throws IOException {
+        CustomerOrderHistory customerOrderHistory = new CustomerOrderHistory(this.customer);
     }
 
     public void showRestaurantOrders(Customer customer){

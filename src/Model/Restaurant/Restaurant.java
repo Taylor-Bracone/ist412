@@ -16,6 +16,7 @@ public class Restaurant {
 
     //relate the cuisine choices
     private ArrayList<Cuisine> servingCuisines;
+    public Restaurant (){}
 
     public Restaurant(String restaurantName){
         this.restaurantName = restaurantName;

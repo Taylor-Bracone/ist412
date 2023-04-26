@@ -13,6 +13,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -51,7 +52,7 @@ public class CustomerOrderView extends JFrame implements ActionListener {
         add(buttonPanel, BorderLayout.SOUTH);
     }
 
-    private void switchView(int choice, Customer customer){
+    private void switchView(int choice, Customer customer) throws IOException {
         setVisible(false);
         switch(choice) {
             case 0:
@@ -59,7 +60,7 @@ public class CustomerOrderView extends JFrame implements ActionListener {
                 break;
 
             case 1:
-                customerController.customerOrderHistory(customer);
+                customerController.customerOrderHistory(this.customer);
                 break;
 
             case 2:
@@ -81,7 +82,11 @@ public class CustomerOrderView extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == btn_select){
             int index = optionsList.getSelectedIndex();
-            switchView(index, customer);
+            try {
+                switchView(index, customer);
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
         }
 
         if (e.getSource() == btn_exit){
