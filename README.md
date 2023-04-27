@@ -23,11 +23,11 @@ Team-Member ID 	  Team-Member Name 	Percentage Efforts in Particular Assignment 
 
 ● khw5086         Kim Winters       40%			                                       Implemented Customer Updates Account Use Case, Restuarnt Menu View, cleanup/refactored code
 
-● mdt5340         Melisa Tasel
+● mdt5340         Melisa Tasel 40% Fixed all code smells for various classes for Part 1, created Customer raw data file
 
-● rqs5899         Riley Surratt
+● rqs5899         Riley Surratt 20% creation of 8 raw data files, restructure of repo ignores, debugging and filepath rerouting, code refactoring and fixing of clarity, edited model classes and added necessary fields for logins, finalized reading and writing of text files for restaurant owner login
 
-● apr5774         Ananya Reddy
+● apr5774         Ananya Reddy 30% Implemented View Menu use case for restuarant owner, created reading and writing methods for restaurant owner login
 
 ● tdb5457         Taylor Bracone Cleanup/ refactored code
 
