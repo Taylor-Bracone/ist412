@@ -17,7 +17,6 @@ To login as a restaurant owner:
 
 ● Password = password
 
-*File paths are set to absolute file path, need to be changed to local file path*
 
 Team-Member ID 	  Team-Member Name 	Percentage Efforts in Particular Assignment 	Brief of Efforts in the Tasks Contribution
 
