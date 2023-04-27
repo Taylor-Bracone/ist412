@@ -27,7 +27,7 @@ Team-Member ID 	  Team-Member Name 	Percentage Efforts in Particular Assignment 
 
 ● rqs5899         Riley Surratt 20% creation of 8 raw data files, restructure of repo ignores, debugging and filepath rerouting, code refactoring and fixing of clarity, edited model classes and added necessary fields for logins, finalized reading and writing of text files for restaurant owner login
 
-● apr5774         Ananya Reddy 30% Implemented View Menu use case for restuarant owner, created reading and writing methods for restaurant owner login
+● apr5774         Ananya Reddy 30% Implemented View Menu use case for restuarant owner, created reading and writing methods for restaurant owner login, fixed main method
 
 ● tdb5457         Taylor Bracone Cleanup/ refactored code
 
