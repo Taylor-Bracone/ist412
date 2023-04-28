@@ -1,6 +1,6 @@
-Sally
-park
-1234
+test
+t
+t
 1231234123
 Customer1
 password

@@ -7,6 +7,7 @@ import Model.Actors.Customer;
 import Model.Actors.User;
 import Model.Restaurant.Restaurant;
 import Model.Restaurant.RestaurantList;
+import View.AuthView;
 import View.Restaurant.RestaurantListView;
 
 import javax.swing.*;
@@ -22,7 +23,7 @@ public class CustomerOrderView extends JFrame implements ActionListener {
     private RestaurantListView restaurantListView;
     private JPanel optionsView = new JPanel();
     private JList<String> optionsList;
-    private JButton btn_select, btn_exit;
+    private JButton btn_select, btn_exit, btn_logOut;
     private Customer customer;
 
     public CustomerOrderView(Customer customer){
@@ -45,8 +46,12 @@ public class CustomerOrderView extends JFrame implements ActionListener {
         btn_select = new JButton("Select");
         btn_select.addActionListener(this);
         btn_exit = new JButton("Exit");
+        btn_exit.addActionListener(this);
+        btn_logOut = new JButton("Log Out");
+        btn_logOut.addActionListener(this);
         buttonPanel.add(btn_select);
         buttonPanel.add(btn_exit);
+        buttonPanel.add(btn_logOut);
 
         add(optionsView, BorderLayout.CENTER);
         add(buttonPanel, BorderLayout.SOUTH);
@@ -73,7 +78,6 @@ public class CustomerOrderView extends JFrame implements ActionListener {
                 customerController.showRestaurantOrders(customer);
                 break;
             case 4:
-                System.out.println("Thank you!");
                 break;
         }
     }
@@ -91,6 +95,12 @@ public class CustomerOrderView extends JFrame implements ActionListener {
 
         if (e.getSource() == btn_exit){
             System.exit(0);
+        }
+
+        if (e.getSource() == btn_logOut){
+            setVisible(false);
+            AuthController authController = new AuthController();
+            AuthView authView = new AuthView(authController);
         }
     }
 }

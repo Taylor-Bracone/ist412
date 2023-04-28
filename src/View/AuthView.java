@@ -14,13 +14,14 @@ import java.util.Scanner;
 public class AuthView extends JFrame{
 
     private AuthController authController;
+    private JFrame loginFrame;
     public AuthView(AuthController authController){
         createLoginView();
         this.authController = authController;
     }
 
     private  void createLoginView() {
-        JFrame loginFrame = new JFrame("Login");
+        loginFrame = new JFrame("Login");
         loginFrame.setSize(300, 150);
         loginFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -67,10 +68,10 @@ public class AuthView extends JFrame{
 
                 try {
                     login(username, password);
+                    setVisible(false);
                 } catch (IOException ex) {
                     throw new RuntimeException(ex);
                 }
-                setVisible(false);
 
             }
         });
@@ -84,9 +85,10 @@ public class AuthView extends JFrame{
 
     }
     public void login(String userName, String password) throws IOException {
+        loginFrame.setVisible(false);
         User user = new User(userName, password);
         this.authController.login(user);
-        setVisible(false);
+
     }
 
 }

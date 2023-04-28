@@ -25,7 +25,7 @@ public class MenuView extends JFrame implements ActionListener{
     private DefaultTableModel menuTableModel;
     private JLabel menuLabel;
     private JScrollBar menuScroller;
-    private JButton btn_order;
+    private JButton btn_order, btn_back;
     private RestaurantController restaurantController = new RestaurantController();
     private Restaurant restaurant1;
     private Customer customer;
@@ -66,8 +66,11 @@ public class MenuView extends JFrame implements ActionListener{
 
             JPanel buttonPanel = new JPanel();
             btn_order = new JButton("Select to Order");
-            buttonPanel.add(btn_order);
             btn_order.addActionListener(this);
+            btn_back = new JButton("Back");
+            btn_back.addActionListener(this);
+            buttonPanel.add(btn_order);
+            buttonPanel.add(btn_back);
 
             add(menuScrollPane, BorderLayout.CENTER);
             add(buttonPanel, BorderLayout.SOUTH);
@@ -124,6 +127,10 @@ public class MenuView extends JFrame implements ActionListener{
         if (e.getSource() == btn_order){
             int orderItem = getOrder();
             this.restaurantController.orderItem(restaurant1, customer, orderItem);
+        }
+        if (e.getSource() == btn_back){
+            setVisible(false);
+            RestaurantListView restaurantListView = new RestaurantListView(customer);
         }
     }
 }

@@ -6,6 +6,7 @@ import Model.Actors.Customer;
 import Model.Actors.SysAdmin;
 import Model.Actors.User;
 import Model.Restaurant.Restaurant;
+import View.Actors.CustomerOrderView;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -17,7 +18,7 @@ import java.util.Vector;
 
 public class RestaurantListView extends JFrame implements ActionListener {
    private JPanel optionsView = new JPanel();
-   private JButton btn_select, btn_exit;
+   private JButton btn_select, btn_exit, btn_back;
 
    private JTable restaurantTable;
    private DefaultTableModel restaurantTableModel;
@@ -55,8 +56,12 @@ public class RestaurantListView extends JFrame implements ActionListener {
       btn_select = new JButton("Select");
       btn_select.addActionListener(this);
       btn_exit = new JButton("Exit");
+      btn_exit.addActionListener(this);
+      btn_back = new JButton("Back");
+      btn_back.addActionListener(this);
       buttonPanel.add(btn_select);
       buttonPanel.add(btn_exit);
+      buttonPanel.add(btn_back);
 
       add(optionsView, BorderLayout.CENTER);
       add(buttonPanel, BorderLayout.SOUTH);
@@ -77,6 +82,11 @@ public class RestaurantListView extends JFrame implements ActionListener {
       }
       if (e.getSource() == btn_exit){
          System.exit(0);
+      }
+
+      if (e.getSource() == btn_back){
+         setVisible(false);
+         CustomerOrderView customerOrderView = new CustomerOrderView(this.customer);
       }
    }
 }

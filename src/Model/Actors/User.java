@@ -178,7 +178,7 @@ public class User implements Serializable {
     }
 
     public ArrayList<Customer> readFromCustomerFile() throws IOException {
-        File customerFile = new File("src/DataFiles/Customer.txt");
+        File customerFile = new File("ist412/src/DataFiles/Customer.txt");
         BufferedReader bufReader = new BufferedReader(new FileReader(customerFile));
         ArrayList<String> data = new ArrayList<>();
         ArrayList<Customer> customerList = new ArrayList<>();
@@ -198,7 +198,7 @@ public class User implements Serializable {
     }
 
     public void writeToCustomerFile(String firstName, String lastName, String address, String name) throws IOException{
-        Path customerFile = Path.of("src/DataFiles/Customer.txt");
+        Path customerFile = Path.of("ist412/src/DataFiles/Customer.txt");
         //FileWriter fileWriter = new FileWriter(customerFile);
         ArrayList<Customer> customers = this.readFromCustomerFile();
         for (int i = 0; i <customers.size(); i++){
@@ -223,7 +223,7 @@ public class User implements Serializable {
     public Restaurant restaurant1 = new Restaurant("Yallah");
 
     public ArrayList<RestaurantOwner> readFromRestaurantOwnerFile() throws IOException {
-        File resOwnerFile = new File("src/DataFiles/RestaurantOwner.txt");
+        File resOwnerFile = new File("ist412/src/DataFiles/RestaurantOwner.txt");
         BufferedReader bufReader = new BufferedReader(new FileReader(resOwnerFile));
         ArrayList<String> data = new ArrayList<>();
         ArrayList<RestaurantOwner> resOwnerList = new ArrayList<>();
@@ -244,7 +244,7 @@ public class User implements Serializable {
     }
 
     public void writeToResOwnerFile(String firstName, String lastName, String address, String name) throws IOException{
-        Path customerFile = Path.of("src/DataFiles/RestaurantOwner.txt");
+        Path customerFile = Path.of("ist412/src/DataFiles/RestaurantOwner.txt");
         //FileWriter fileWriter = new FileWriter(customerFile);
         ArrayList<RestaurantOwner> resOwners = this.readFromRestaurantOwnerFile();
         for (int i = 0; i <resOwners.size(); i++){
@@ -268,7 +268,7 @@ public class User implements Serializable {
     }
 
     public ArrayList<Deliverer> readFromDelivererFile() throws IOException {
-        File delivererFile = new File("src/DataFiles/Deliverer.txt");
+        File delivererFile = new File("ist412/src/DataFiles/Deliverer.txt");
         BufferedReader bufReader = new BufferedReader(new FileReader(delivererFile));
         ArrayList<String> data = new ArrayList<>();
         ArrayList<Deliverer> delivererList = new ArrayList<>();
