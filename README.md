@@ -29,7 +29,7 @@ Team-Member ID 	  Team-Member Name 	Percentage Efforts in Particular Assignment 
 
 ● apr5774         Ananya Reddy 30% Implemented View Menu use case for restuarant owner, created reading and writing methods for restaurant owner login, fixed main method
 
-● tdb5457         Taylor Bracone Cleanup/ refactored code
+● tdb5457         Taylor Bracone 20% Cleanup/ refactored code and helped to implement part of use cases for the deliverable(s)
 
 
 
