@@ -15,7 +15,7 @@ public class UpdateCustomerAccountForm extends JFrame implements ActionListener 
     private JLabel lbl_lastName;
     private JLabel lbl_address;
     private JTextField txt_firstName, txt_lastName, txt_address, txt_banner;
-    private JButton btn_update;
+    private JButton btn_update, btn_back;
     private Customer customer = new Customer();
     private CustomerController customerController = new CustomerController();
 
@@ -48,11 +48,14 @@ public class UpdateCustomerAccountForm extends JFrame implements ActionListener 
 
         btn_update = new JButton();
         btn_update.setText("Update");
+        btn_back = new JButton();
+        btn_back.setText("Back");
 
         txt_firstName.addActionListener(this);
         txt_lastName.addActionListener(this);
         txt_address.addActionListener(this);
         btn_update.addActionListener(this);
+        btn_back.addActionListener(this);
 
         updateAccountView.add(lbl_OGFirstName);
         updateAccountView.add(lbl_firstName);
@@ -63,6 +66,7 @@ public class UpdateCustomerAccountForm extends JFrame implements ActionListener 
         updateAccountView.add(txt_address);
         updateAccountView.add(btn_update);
         updateAccountView.add(txt_banner);
+        updateAccountView.add(btn_back);
 
         add(updateAccountView, BorderLayout.CENTER);
 
@@ -85,6 +89,14 @@ public class UpdateCustomerAccountForm extends JFrame implements ActionListener 
             }
             else txt_banner.setText("Invalid input, try again");
 
+        }
+        if (e.getSource() == btn_back){
+            setVisible(false);
+            try {
+                CustomerOrderView customerOrderView = new CustomerOrderView(customer);
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
         }
     }
 
