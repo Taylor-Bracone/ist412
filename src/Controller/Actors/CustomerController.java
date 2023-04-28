@@ -25,12 +25,12 @@ public class CustomerController {
     /**
      * handles all logic for customer, has methods for everything the customer can do
      */
-    public CustomerController(){
+    public CustomerController() throws IOException {
         this.restaurantListController = new RestaurantListController();
         this.restaurantController = new RestaurantController();
         this.restaurants = restaurantListController.viewRestaurantList();
     }
-    public CustomerController(Customer customer){
+    public CustomerController(Customer customer) throws IOException {
         this.restaurantListController = new RestaurantListController();
         this.restaurantController = new RestaurantController(customer);
         this.restaurants = restaurantListController.viewRestaurantList();

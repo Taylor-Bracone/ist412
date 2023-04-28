@@ -10,6 +10,7 @@ import Model.Restaurant.Menu;
 import Model.Restaurant.MenuItemInterface;
 import Model.Restaurant.Restaurant;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -24,7 +25,7 @@ public class RestaurantOrderView {
     private ArrayList<Restaurant> restaurants = restaurantListController.viewRestaurantList();
     private Menu menu;
 
-    public RestaurantOrderView(User restaurantOwner) {
+    public RestaurantOrderView(User restaurantOwner) throws IOException {
         System.out.println("Welcome to the Restaurant Order View.");
         System.out.println("Please select a function from the list by entering the associated number.");
         System.out.println("1. Request to be added to restaurant list on the app");
