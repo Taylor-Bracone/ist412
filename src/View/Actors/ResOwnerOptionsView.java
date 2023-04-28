@@ -24,7 +24,7 @@ public class ResOwnerOptionsView extends JFrame implements ActionListener {
     private JButton btn_select, btn_exit;
     private RestaurantOwner restaurantOwner;
 
-    public ResOwnerOptionsView(RestaurantOwner restaurantOwner){
+    public ResOwnerOptionsView(RestaurantOwner restaurantOwner) throws IOException {
         initCompts();
         setVisible(true);
         this.restaurantOwner = restaurantOwner;

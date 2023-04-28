@@ -13,6 +13,7 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Vector;
 
@@ -26,14 +27,14 @@ public class RestaurantListView extends JFrame implements ActionListener {
    private RestaurantListController restaurantListController = new RestaurantListController();
    private RestaurantController restaurantController = new RestaurantController();
 
-   public RestaurantListView(){
+   public RestaurantListView() throws IOException {
       initCompts();
    }
-   public RestaurantListView(Customer customer){
+   public RestaurantListView(Customer customer) throws IOException {
        this.customer = customer;
        initCompts();
    }
-   public void initCompts(){
+   public void initCompts() throws IOException {
       setTitle("Restaurant List");
       setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       setSize(250, 250);
@@ -45,6 +46,7 @@ public class RestaurantListView extends JFrame implements ActionListener {
       restaurantTable = new JTable(restaurantTableModel);
       JScrollPane restScrollPane = new JScrollPane(restaurantTable);
       ArrayList<Restaurant> restList = restaurantListController.viewRestaurantList();
+      restaurantListController.readFromMenuForFoodList();
       for (int i = 0; i < restList.size(); i++){
          Vector row = new Vector();
          row.add(i);
@@ -77,7 +79,12 @@ public class RestaurantListView extends JFrame implements ActionListener {
          if (row < 0){
             row = 0;
          }
-         Restaurant toOrderFrom = restaurantListController.viewRestaurantList().get(row);
+         Restaurant toOrderFrom = null;
+         try {
+            toOrderFrom = restaurantListController.viewRestaurantList().get(row);
+         } catch (IOException ex) {
+            throw new RuntimeException(ex);
+         }
          restaurantController.orderFromMenu(toOrderFrom, customer);
       }
       if (e.getSource() == btn_exit){
@@ -86,7 +93,11 @@ public class RestaurantListView extends JFrame implements ActionListener {
 
       if (e.getSource() == btn_back){
          setVisible(false);
-         CustomerOrderView customerOrderView = new CustomerOrderView(this.customer);
+         try {
+            CustomerOrderView customerOrderView = new CustomerOrderView(this.customer);
+         } catch (IOException ex) {
+            throw new RuntimeException(ex);
+         }
       }
    }
 }

@@ -16,6 +16,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.AdjustmentEvent;
 import java.awt.event.AdjustmentListener;
+import java.io.IOException;
 import java.util.Scanner;
 import java.util.Vector;
 
@@ -130,7 +131,11 @@ public class MenuView extends JFrame implements ActionListener{
         }
         if (e.getSource() == btn_back){
             setVisible(false);
-            RestaurantListView restaurantListView = new RestaurantListView(customer);
+            try {
+                RestaurantListView restaurantListView = new RestaurantListView(customer);
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
         }
     }
 }

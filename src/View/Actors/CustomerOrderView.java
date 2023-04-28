@@ -26,7 +26,7 @@ public class CustomerOrderView extends JFrame implements ActionListener {
     private JButton btn_select, btn_exit, btn_logOut;
     private Customer customer;
 
-    public CustomerOrderView(Customer customer){
+    public CustomerOrderView(Customer customer) throws IOException {
         initCompts();
         setVisible(true);
         this.customer = customer;

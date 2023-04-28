@@ -33,6 +33,11 @@ public class Restaurant {
         this.servingCuisines = new ArrayList<>();
     }
 
+    public Restaurant(String restaurantName, Menu menu){
+        this.restaurantName = restaurantName;
+        this.menu = menu;
+    }
+
     public Restaurant(String restaurantName, RestaurantOwner ownerName,
                       int restaurantID, String phoneNumber,
                       String restaurantEmail, Menu menu) {

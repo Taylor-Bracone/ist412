@@ -15,6 +15,7 @@ import View.Restaurant.RestaurantOrderView;
 import View.Actors.ResOwnerOptionsView;
 
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -36,13 +37,13 @@ public class RestaurantOwnerController {
     private ResOwnerOptionsView resOwnerOptionsView;
     Scanner scanner = new Scanner(System.in);
 
-    public RestaurantOwnerController(){
+    public RestaurantOwnerController() throws IOException {
         this.restaurantListController = new RestaurantListController();
         this.restaurantController = new RestaurantController();
         this.restaurants = restaurantListController.viewRestaurantList();
     }
 
-    public RestaurantOwnerController(RestaurantOwner restaurantOwner){
+    public RestaurantOwnerController(RestaurantOwner restaurantOwner) throws IOException {
         this.resOwnerOptionsView = new ResOwnerOptionsView(restaurantOwner);
     }
 
@@ -51,7 +52,7 @@ public class RestaurantOwnerController {
         this.pendingRestaurantAcceptList.add(restaurant);
     }
 
-    public void requestToBeRemoved(Restaurant restaurant){
+    public void requestToBeRemoved(Restaurant restaurant) throws IOException {
         // write to be 'invalidated' from the system
         restaurantListController.viewRestaurantList().remove(restaurant);
     }
