@@ -1,6 +1,6 @@
 package Model.Restaurant;
 
-public class MenuItem {
+public class MenuItem implements MenuItemInterface{
     private String name;
     private double price;
     private String description;
@@ -22,6 +22,12 @@ public class MenuItem {
         //returns name of menu item
         return name;
     }
+
+    @Override
+    public String name() {
+        return null;
+    }
+
     public double getPrice(){
         //returns price of menu item
         return price;
