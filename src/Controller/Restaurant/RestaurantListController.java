@@ -45,7 +45,7 @@ public class RestaurantListController {
     public ArrayList<Food> readFromMenuForFoodList () throws IOException {
         Map<String, List<String>> map = new HashMap<>();
         BufferedReader reader = null;
-        File file = new File("ist412/src/DataFiles/Menu.txt");
+        File file = new File("src/DataFiles/Menu.txt");
         reader = new BufferedReader(new FileReader(file));
         String line = null;
         while ((line = reader.readLine()) !=null){
@@ -87,7 +87,7 @@ public class RestaurantListController {
     private String readFromMenuForMenuName () throws IOException {
         Map<String, List<String>> map = new HashMap<>();
         BufferedReader reader = null;
-        File file = new File("ist412/src/DataFiles/Menu.txt");
+        File file = new File("src/DataFiles/Menu.txt");
         reader = new BufferedReader(new FileReader(file));
         String line = null;
         while ((line = reader.readLine()) !=null){
@@ -107,7 +107,7 @@ public class RestaurantListController {
     private String readFromRestaurantForName() throws IOException {
         Map<String, List<String>> map = new HashMap<>();
         BufferedReader reader = null;
-        File file = new File("ist412/src/DataFiles/Restaurant.txt");
+        File file = new File("src/DataFiles/Restaurant.txt");
         reader = new BufferedReader(new FileReader(file));
         String line = null;
         while ((line = reader.readLine()) !=null){
