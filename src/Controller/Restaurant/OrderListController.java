@@ -38,7 +38,7 @@ public class OrderListController {
     public Map<String, List<String>> readFromOrder () throws IOException {
         Map<String, List<String>> map = new HashMap<>();
         BufferedReader reader = null;
-        File file = new File("ist412/src/DataFiles/Order.txt");
+        File file = new File("src/DataFiles/Order.txt");
         reader = new BufferedReader(new FileReader(file));
         String line = null;
         while ((line = reader.readLine()) != null){
@@ -71,7 +71,7 @@ public class OrderListController {
     }
 
     public void writeToOrder (String customerName, String item) throws IOException {
-        File orderFile = new File("ist412/src/DataFiles/Order.txt");
+        File orderFile = new File("src/DataFiles/Order.txt");
         FileWriter  writer = new FileWriter(orderFile, true);
         StringBuilder text = new StringBuilder();
         text.append("customer:").append(customerName).append("\n");
