@@ -19,9 +19,6 @@ public class UpdateCustomerAccountForm extends JFrame implements ActionListener 
     private Customer customer = new Customer();
     private CustomerController customerController = new CustomerController();
 
-    public UpdateCustomerAccountForm() throws IOException {
-        initCompts();
-    }
     public UpdateCustomerAccountForm(Customer customer) throws IOException {
         this.customer = customer;
         initCompts();

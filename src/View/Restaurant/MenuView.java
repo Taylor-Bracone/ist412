@@ -45,9 +45,6 @@ public class MenuView extends JFrame implements ActionListener{
         restaurant1 = restaurant;
         this.restaurantOwner = restaurantOwner;
     }
-    public MenuView (){
-        initCompts();
-    }
 
     public void initCompts(){
             setTitle("Menu");
@@ -128,11 +125,13 @@ public class MenuView extends JFrame implements ActionListener{
         if (e.getSource() == btn_order){
             int orderItem = getOrder();
             this.restaurantController.orderItem(restaurant1, customer, orderItem);
+            setVisible(false);
         }
         if (e.getSource() == btn_back){
             setVisible(false);
             try {
                 RestaurantListView restaurantListView = new RestaurantListView(customer);
+                setVisible(false);
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
             }

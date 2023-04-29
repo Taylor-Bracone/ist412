@@ -1,12 +1,8 @@
 package Controller.Actors;
 
-import Model.Actors.Customer;
 import Model.Actors.Deliverer;
-import Model.Actors.RestaurantOwner;
 import Model.Restaurant.Order;
-import Model.Restaurant.OrderList;
 import Model.Restaurant.HistoricalOrderList;
-import Model.Restaurant.Restaurant;
 import View.Actors.DeliveryOrderView;
 
 import java.util.ArrayList;

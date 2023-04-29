@@ -86,6 +86,7 @@ public class RestaurantListView extends JFrame implements ActionListener {
             throw new RuntimeException(ex);
          }
          restaurantController.orderFromMenu(toOrderFrom, customer);
+         setVisible(false);
       }
       if (e.getSource() == btn_exit){
          System.exit(0);

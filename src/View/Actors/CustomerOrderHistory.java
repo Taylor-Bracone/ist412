@@ -1,6 +1,7 @@
 package View.Actors;
 
 import Controller.Restaurant.OrderController;
+import Controller.Restaurant.OrderListController;
 import Model.Actors.Customer;
 import Model.Restaurant.Order;
 
@@ -22,10 +23,8 @@ public class CustomerOrderHistory extends JFrame implements ActionListener {
     private DefaultTableModel orderTableModel;
     private JButton btn_back;
     private Customer customer = new Customer();
-    private OrderController orderController = new OrderController();
-    public CustomerOrderHistory() throws IOException {
-        intiCompts();
-    }
+    private OrderListController orderListController = new OrderListController();
+
     public CustomerOrderHistory(Customer customer) throws IOException {
         this.customer = customer;
         intiCompts();
@@ -34,33 +33,41 @@ public class CustomerOrderHistory extends JFrame implements ActionListener {
     private void intiCompts() throws IOException {
         setTitle("Customer Order History");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(250, 250);
+        setSize(250, 500);
         setLocationRelativeTo(null);
 
         orderTableModel = new DefaultTableModel();
         orderTableModel.addColumn("Item Ordered");
         orderHistoryTable = new JTable(orderTableModel);
         JScrollPane orderScrollPane = new JScrollPane(orderHistoryTable);
-        //ArrayList<String> list = populateTable(customer.getFirstName());
-//        for (int i =0; i < list.size(); i++){
-//            Vector row = new Vector();
-//            row.add(i);
-//            orderTableModel.addRow(row);
-//        }
+        ArrayList<String> list = orderListController.orderHistory(customer.getFirstName());
+        for (int i =0; i < list.size(); i++){
+            Vector row = new Vector();
+            row.add(list.get(i));
+            orderTableModel.addRow(row);
+        }
 
         JPanel buttonPanel = new JPanel();
         btn_back = new JButton("Back");
+        btn_back.addActionListener(this);
         buttonPanel.add(btn_back);
 
         add(orderHistory, BorderLayout.CENTER);
         add(orderScrollPane, BorderLayout.NORTH);
-        add(buttonPanel, BorderLayout.SOUTH);
+        add(buttonPanel, BorderLayout.CENTER);
 
         setVisible(true);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
+        if (e.getSource() == btn_back){
+            setVisible(false);
+            try {
+                CustomerOrderView customerOrderView = new CustomerOrderView(customer);
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        }
     }
 }

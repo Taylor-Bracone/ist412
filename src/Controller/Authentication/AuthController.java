@@ -31,10 +31,12 @@ public class AuthController {
         if (verifiedUser.equals("Customer")){
             Customer customer = user.getCustomer(user.getUserName());
             this.customerController = new CustomerController(customer);
-        } else if(verifiedUser.equals("Restaurant Owner")){
+        }
+        else if(verifiedUser.equals("Restaurant Owner")){
             RestaurantOwner restaurantOwner = new RestaurantOwner(user, user.getUserName());
             this.restaurantOwnerController = new RestaurantOwnerController(restaurantOwner);
-        } else if(verifiedUser.equals("Deliverer")){
+        }
+        else if(verifiedUser.equals("Deliverer")){
             Deliverer deliverer = user.readFromDelivererFile().get(0);
             Customer customer = user.readFromCustomerFile().get(0);
 
@@ -42,7 +44,7 @@ public class AuthController {
             Restaurant restaurant = new Restaurant("Yallah",restaurantOwner, 123, "1112223333", "test@test.com");
 
             Order order = new Order(customer, restaurant);
-            order.setDeliverer(deliverer); // deliverer should be assigned to order by SysAdmin
+            order.setDeliverer(deliverer);
             order.setStatus("pending");
             OrderList.addItem(order);
 

@@ -17,11 +17,11 @@ To login as a restaurant owner:
 
 ● Password = password
 
-## M04-A03 Two Implemented Use Cases Integrated with First Usecase + Login/Authentication Implementation with Clean, Refactored Code
+## M05-A01 Final Project Implementation
 
 Team-Member ID 	  Team-Member Name 	Percentage Efforts in Particular Assignment 	Brief of Efforts in the Tasks Contribution
 
-● khw5086         Kim Winters       40%			                                       Implemented Customer Updates Account Use Case, Restuarnt Menu View, cleanup/refactored code
+● khw5086         Kim Winters  40% Implemented the use of text files for the customer, refactored/cleaned up code, added back buttons/logout buttons, implemented customer order history
 
 ● mdt5340         Melisa Tasel 40% Fixed all code smells for various classes for Part 1, created Customer raw data file
 
@@ -42,7 +42,7 @@ Team-Member ID 	  Team-Member Name 	Percentage Efforts in Particular Assignment 
 
 ## Group Design Pattern Selections to Implement
 Taylor Bracone:  
-● Observer Pattern -- helps with class interaction and limit need for code alteration --> Model > Actors (Customer), Restaurant (Cuisine, Observer, Restaurant, Model.Restaurant.RestaurantDataTest, RestaurantList, Model.Restaurant.RestaurantListTest, Subject, etc)
+● Observer Pattern -- helps with class interaction and limit need for code alteration --> Model > Actors (Customer), Restaurant (Cuisine, Observer, Restaurant, test.RestaurantDataTest, RestaurantList, test.RestaurantListTest, Subject, etc)
 
 ● Navigation Tabs -- navigation of options and system functions alike --> View > Restaurants (SwingTabsView) it has all of the use case tabs
 
