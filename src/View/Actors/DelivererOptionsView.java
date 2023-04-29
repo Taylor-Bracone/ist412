@@ -51,7 +51,7 @@ public class DelivererOptionsView extends JFrame implements ActionListener {
         setVisible(false);
         switch(choice) {
             case 0:
-                delivererController.displayAssignedOrder(deliverer);
+                //delivererController.displayAssignedOrder();
                 break;
 
             case 1:
