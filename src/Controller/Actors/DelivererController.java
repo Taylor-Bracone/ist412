@@ -3,6 +3,7 @@ package Controller.Actors;
 import Model.Actors.Deliverer;
 import Model.Restaurant.Order;
 import Model.Restaurant.HistoricalOrderList;
+import View.Actors.DelivererOptionsView;
 import View.Actors.DeliveryOrderView;
 
 import java.util.ArrayList;
@@ -10,13 +11,14 @@ import java.util.ArrayList;
 public class DelivererController {
     private DeliveryOrderView deliveryOrderView;
     private Deliverer deliverer;
+    private DelivererOptionsView delivererOptionsView;
     public DelivererController (){
 
     }
     public DelivererController (Deliverer deliverer){
         this.deliverer = deliverer;
-        this.deliveryOrderView = new DeliveryOrderView(deliverer);
-
+        //this.deliveryOrderView = new DeliveryOrderView(deliverer);
+        this.delivererOptionsView = new DelivererOptionsView(deliverer);
     }
 
     public void displayAssignedOrder(Deliverer deliverer, ArrayList<Order> orderArrayList){

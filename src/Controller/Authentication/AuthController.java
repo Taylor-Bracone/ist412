@@ -49,7 +49,6 @@ public class AuthController {
             OrderList.addItem(order);
 
             this.delivererController = new DelivererController(deliverer);
-
         }
         else{
             System.out.println("Invalid login");

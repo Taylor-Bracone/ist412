@@ -18,7 +18,7 @@ public class DelivererOptionsView extends JFrame implements ActionListener {
     private JList<String> optionsList;
     private JButton btn_select, btn_exit;
     private Deliverer deliverer;
-    private DelivererController delivererController = new DelivererController(deliverer);
+    private DelivererController delivererController = new DelivererController();
 
     public DelivererOptionsView(Deliverer deliverer){
         initCompts();
