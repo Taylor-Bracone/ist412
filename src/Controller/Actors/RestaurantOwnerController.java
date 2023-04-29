@@ -5,7 +5,6 @@ import Controller.Restaurant.RestaurantController;
 import Controller.Restaurant.RestaurantListController;
 import Model.Actors.RestaurantOperator;
 import Model.Actors.RestaurantOwner;
-import Model.Actors.User;
 import Model.Restaurant.Food;
 import Model.Restaurant.Menu;
 import Model.Restaurant.MenuItemInterface;
@@ -13,18 +12,11 @@ import Model.Restaurant.Restaurant;
 import View.Restaurant.MenuView;
 import View.Restaurant.RestaurantOrderView;
 import View.Actors.ResOwnerOptionsView;
-
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class RestaurantOwnerController {
-    /**
-     * handles logic for restaurant owner controller
-     * @param restaurant
-     * @return
-     */
     public RestaurantOrderView restaurantOrderView;
     private RestaurantListController restaurantListController;
     private RestaurantController restaurantController;

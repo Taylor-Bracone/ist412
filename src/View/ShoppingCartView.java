@@ -1,9 +1,12 @@
 package View;
 
 import Controller.Restaurant.OrderController;
+import Controller.Restaurant.OrderListController;
 import Model.Actors.Customer;
 import Model.Restaurant.Food;
 import Model.Restaurant.Restaurant;
+import View.Actors.CustomerOrderView;
+import View.Restaurant.MenuView;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -16,7 +19,7 @@ import java.util.Vector;
 public class ShoppingCartView extends JFrame implements ActionListener {
     private JTable cartTable;
     private DefaultTableModel cartTableModel;
-    private JButton addButton, removeButton, checkoutButton;
+    private JButton btn_back, removeButton, checkoutButton;
     private JLabel totalLabel;
     private OrderController orderController = new OrderController();
     private Customer customer = new Customer();
@@ -37,7 +40,7 @@ public class ShoppingCartView extends JFrame implements ActionListener {
         cartTable = new JTable(cartTableModel);
         JScrollPane cartScrollPane = new JScrollPane(cartTable);
 
-        addButton = new JButton("Add");
+        btn_back = new JButton("Back");
         removeButton = new JButton("Remove");
         checkoutButton = new JButton("Checkout");
         totalLabel = new JLabel("Total: $0.00");
@@ -45,7 +48,7 @@ public class ShoppingCartView extends JFrame implements ActionListener {
         // Add components to the frame
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new FlowLayout(FlowLayout.RIGHT));
-        buttonPanel.add(addButton);
+        buttonPanel.add(btn_back);
         buttonPanel.add(removeButton);
         buttonPanel.add(checkoutButton);
 
@@ -54,7 +57,7 @@ public class ShoppingCartView extends JFrame implements ActionListener {
         add(totalLabel, BorderLayout.NORTH);
 
         // Add action listeners to the buttons
-        addButton.addActionListener(this);
+        btn_back.addActionListener(this);
         removeButton.addActionListener(this);
         checkoutButton.addActionListener(this);
 
@@ -64,7 +67,7 @@ public class ShoppingCartView extends JFrame implements ActionListener {
         this.food = item;
     }
 
-    public void addToCart(Food item){
+    public void addToCart(Food item) {
         Vector name = new Vector<>();
         name.add(item.getName());
         name.add(item.getDescription());
@@ -76,20 +79,36 @@ public class ShoppingCartView extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        /*
-        if (e.getSource() == addButton) {
-            //Implement the add button functionality
-        */
+        if (e.getSource() == btn_back) {
+            setVisible(false);
+            MenuView menuView = new MenuView(restaurant, customer);
+            menuView.showMenu(restaurant);
+        }
         if (e.getSource() == removeButton) {
-            //Implement the remove button functionality
-        } else if (e.getSource() == checkoutButton) {
-            //orderController.generateOrder(customer.getFirstName(), restaurant.getRestaurantName(), food.getName());
+            int row = cartTable.getSelectedRow();
+            if (row >= 0) {
+                cartTableModel.removeRow(row);
+            }
+        }
+        if (e.getSource() == checkoutButton) {
             int numRows = cartTableModel.getRowCount();
-            for (int i = 0; i < numRows; i++){
+            for (int i = 0; i < numRows; i++) {
                 cartTableModel.removeRow(i);
             }
             totalLabel.setText("Order was placed");
+            OrderListController orderListController = new OrderListController();
+            try {
+                orderListController.writeToOrder(customer.getFirstName(), food.getName());
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+            try {
+                CustomerOrderView customerOrderView = new CustomerOrderView(this.customer);
+                setVisible(false);
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
         }
     }
-
 }
+
