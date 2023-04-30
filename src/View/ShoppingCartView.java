@@ -1,9 +1,13 @@
 package View;
 
+import Controller.Restaurant.CustomerNotifier;
 import Controller.Restaurant.OrderController;
 import Controller.Restaurant.OrderListController;
 import Model.Actors.Customer;
 import Model.Restaurant.Food;
+import Model.Restaurant.Menu;
+import Model.Restaurant.MenuItem;
+import Model.Restaurant.Order;
 import Model.Restaurant.Restaurant;
 import View.Actors.CustomerOrderView;
 import View.Restaurant.MenuView;
@@ -14,6 +18,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Vector;
 
 public class ShoppingCartView extends JFrame implements ActionListener {
@@ -25,6 +30,9 @@ public class ShoppingCartView extends JFrame implements ActionListener {
     private Customer customer = new Customer();
     private Restaurant restaurant = new Restaurant();
     private Food food = new Food();
+    private CustomerNotifier customerNotifier = new CustomerNotifier();
+    private Order order = new Order();
+    private ArrayList<MenuItem> items = new ArrayList<>();
 
     public ShoppingCartView(Customer customer, Restaurant restaurant, Food item) {
         setTitle("Shopping Cart");
@@ -75,6 +83,9 @@ public class ShoppingCartView extends JFrame implements ActionListener {
         cartTableModel.addRow(name);
         totalLabel.setText("Total: $" + item.getPrice());
         JOptionPane.showMessageDialog(this, "Item added to cart.");
+        MenuItem Mitem = new MenuItem(item.getName(), item.getPrice(), item.getDescription());
+        this.items.add(Mitem);
+        this.order = new Order(this.customer, this.restaurant, this.items);
     }
 
     @Override
@@ -96,6 +107,7 @@ public class ShoppingCartView extends JFrame implements ActionListener {
                 cartTableModel.removeRow(i);
             }
             totalLabel.setText("Order was placed");
+            customerNotifier.orderPlaced(this.order);
             OrderListController orderListController = new OrderListController();
             try {
                 orderListController.writeToOrder(customer.getFirstName(), food.getName());

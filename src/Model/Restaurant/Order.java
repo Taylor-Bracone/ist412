@@ -37,6 +37,7 @@ public class Order {
         this.items = items;
     }
 
+
     public Order(Customer customer, Order order, Deliverer deliverer) {
         this.customer = customer;
         this.order = order;
@@ -94,13 +95,22 @@ public class Order {
     @Override
     public String toString() {
         String list = listItems();
-        return "Order{\n" +
-                "customer= " + customer.getFirstName() +
-                ", \nrestaurant= " + restaurant.getRestaurantName() +
-                ", \ndeliverer= " + deliverer.getDelivererID() +
-                ", \nstatus= '" + status + '\'' +
-                ", \nisValidOrder= " + isValidOrder +
-                ", \nitems= \n" + list +
-                '}';
+        return "Order{" +
+                "customer=" + customer +
+                ", restaurant=" + restaurant +
+                ", items=" + list + '}';
     }
+
+//    @Override
+//    public String toString() {
+//        String list = listItems();
+//        return "Order{\n" +
+//                "customer= " + customer.getFirstName() +
+//                ", \nrestaurant= " + restaurant.getRestaurantName() +
+//                ", \ndeliverer= " + deliverer.getDelivererID() +
+//                ", \nstatus= '" + status + '\'' +
+//                ", \nisValidOrder= " + isValidOrder +
+//                ", \nitems= \n" + list +
+//                '}';
+//    }
 }
