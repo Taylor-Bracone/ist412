@@ -21,6 +21,7 @@ public class AuthController {
     CustomerController customerController;
     RestaurantOwnerController restaurantOwnerController;
     DelivererController delivererController;
+    ArrayList<Order> orderList = new ArrayList<>();
 
     public AuthController(){
         this.authView = new AuthView(this);
@@ -46,7 +47,7 @@ public class AuthController {
             Order order = new Order(customer, restaurant);
             order.setDeliverer(deliverer);
             order.setStatus("pending");
-            OrderList.addItem(order);
+            orderList.add(order);
 
             this.delivererController = new DelivererController(deliverer);
         }

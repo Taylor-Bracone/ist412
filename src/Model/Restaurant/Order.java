@@ -44,6 +44,9 @@ public class Order {
         this.deliverer = deliverer;
     }
 
+    public Order() {
+    }
+
     public Deliverer getDeliverer() {
         return deliverer;
     }
