@@ -25,7 +25,7 @@ Team-Member ID 	  Team-Member Name 	Percentage Efforts in Particular Assignment 
 
 ● mdt5340         Melisa Tasel 30% Created Deliverer raw data file and its content, implemented an order list view GUI, and assisted with Order List View logic
 
-● rqs5899         Riley Surratt 30% Fixed file source path errors among readers and writers, finalized implementation of deliverer login, integrated deliverer option view, integrated switch option for deliverer view, created necessary changes to model classes 
+● rqs5899         Riley Surratt 30% Fixed file source path errors among readers and writers, finalized implementation of deliverer login, integrated deliverer option view, integrated switch option for deliverer view, created necessary changes to model classes, implemented basic chain pattern for order notification in system
 
 ● apr5774         Ananya Reddy 
 
