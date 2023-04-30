@@ -7,4 +7,9 @@ public class DelivererNotifier implements OrderNotifier{
     public void orderReady(Order order) {
         System.out.println("Notifies driver");
     }
+
+    @Override
+    public void orderPlaced(Order order) {
+
+    }
 }
