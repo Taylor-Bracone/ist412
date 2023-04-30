@@ -10,6 +10,7 @@ public class Customer extends User implements Observer {
     private String customerID;
     private String password;
     private String userName;
+    private String orderID;
     private ArrayList<Cuisine> preferredCuisines = new ArrayList<>();
     private ArrayList<Restaurant> myRestaurants = new ArrayList<>();
 
@@ -29,6 +30,12 @@ public class Customer extends User implements Observer {
         this.customerID = customerID;
         this.password = password;
     }
+
+    public Customer(String firstName, String lastName, String address, String phoneNumber, String orderID) {
+        super(firstName, lastName, address, phoneNumber);
+        this.orderID = orderID;
+    }
+
 
     public Customer(User user, String userName) {
         super(user.getFirstName(), user.getLastName(), user.getAddress(), user.getPhoneNumber());

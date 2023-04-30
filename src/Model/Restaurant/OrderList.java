@@ -1,14 +1,28 @@
 package Model.Restaurant;
 
 
+import org.junit.runner.manipulation.Ordering;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class OrderList {
     private static List<Order> orderList;
+    private String customerName;
+    private String restaurantName;
+    private int orderID;
+    private String status;
+
+    public OrderList(String customerName, String restaurantName, int orderID, String status) {
+        this.orderList = new ArrayList<>();
+        this.customerName = customerName;
+        this.restaurantName = restaurantName;
+        this.orderID = orderID;
+        this.status = status;
+    }
 
     public OrderList() {
-        this.orderList = new ArrayList<>();
+
     }
 
     // retrieve orderList

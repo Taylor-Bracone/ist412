@@ -9,6 +9,7 @@ public class Order {
     private Customer customer;
     private Restaurant restaurant;
     private Deliverer deliverer;
+    private Order order;
     private String status;
     private boolean isValidOrder;
     private ArrayList<MenuItem> items;
@@ -34,6 +35,12 @@ public class Order {
         this.restaurant = restaurant;
         this.deliverer = deliverer;
         this.items = items;
+    }
+
+    public Order(Customer customer, Order order, Deliverer deliverer) {
+        this.customer = customer;
+        this.order = order;
+        this.deliverer = deliverer;
     }
 
     public Deliverer getDeliverer() {
