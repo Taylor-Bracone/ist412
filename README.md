@@ -27,7 +27,7 @@ Team-Member ID 	  Team-Member Name 	Percentage Efforts in Particular Assignment 
 
 ● rqs5899         Riley Surratt 30% Fixed file source path errors among readers and writers, finalized implementation of deliverer login, integrated deliverer option view, integrated switch option for deliverer view, created necessary changes to model classes 
 
-● apr5774         Ananya Reddy 30% Implemented View Menu use case for restuarant owner, created reading and writing methods for restaurant owner login, fixed main method, created deliverer options GUI
+● apr5774         Ananya Reddy 
 
 ● tdb5457         Taylor Bracone 20% Cleanup/ refactored code and helped to implement part of use cases for the deliverable(s)
 
