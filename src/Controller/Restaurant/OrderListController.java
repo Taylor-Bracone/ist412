@@ -1,13 +1,12 @@
 package Controller.Restaurant;
 
+import Model.Actors.Customer;
+import Model.Actors.Deliverer;
 import Model.Restaurant.Order;
 import Model.Restaurant.OrderList;
 import View.Restaurant.OrderListView;
 
 import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.sql.Array;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -32,8 +31,33 @@ public class OrderListController {
         // shows view of the current orders
         this.orderListView = new OrderListView();
         // Display pending orders in the view
-        orderListView.listPendingOrders(OrderList.getOrderList());
+        orderListView.listCurrentOrders(OrderList.getOrderList());
     }
+
+    public Customer customer1 = new Customer("Andrew", "Ho", "539 Gloria Lane", "4412420683", "39122");
+    public Order order1 = new Order(customer1, customer1.restaurant1);
+    public Deliverer deliverer1 = new Deliverer( "2303");
+
+
+//    public ArrayList<Order> readFromOrderListFile() throws IOException {
+//        File orderListFile = new File("src/DataFiles/OrderList.txt");
+//        BufferedReader bufReader = new BufferedReader(new FileReader(orderListFile));
+//        ArrayList<String> data = new ArrayList<>();
+//        ArrayList<Order> orderList = new ArrayList<>();
+//        String line = bufReader.readLine();
+//        while (line != null) {
+//            data.add(line);
+//            line = bufReader.readLine();
+//        }
+//        bufReader.close();
+//        int index = 0;
+//        for (int i = 0; i < (data.size()/3); i++) {
+//            Order order = new Order(customer1, order1, deliverer1);
+//            orderList.add(order);
+//            index = index + 6;
+//        }
+//        return orderList;
+//    }
 
     public Map<String, List<String>> readFromOrder () throws IOException {
         Map<String, List<String>> map = new HashMap<>();

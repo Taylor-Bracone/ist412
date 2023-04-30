@@ -1,10 +1,8 @@
 package View.Actors;
 
-import Controller.Actors.CustomerController;
 import Controller.Actors.DelivererController;
-import Model.Actors.Customer;
 import Model.Actors.Deliverer;
-import View.Restaurant.RestaurantListView;
+import View.Restaurant.OrderListView;
 
 import javax.swing.*;
 import java.awt.*;
@@ -19,6 +17,7 @@ public class DelivererOptionsView extends JFrame implements ActionListener {
     private JButton btn_select, btn_exit;
     private Deliverer deliverer;
     private DelivererController delivererController = new DelivererController();
+    private OrderListView orderListView;
 
     public DelivererOptionsView(Deliverer deliverer){
         initCompts();
@@ -47,11 +46,13 @@ public class DelivererOptionsView extends JFrame implements ActionListener {
         add(buttonPanel, BorderLayout.SOUTH);
     }
 
-    private void switchView(int choice, Customer customer){
+    private void switchView(int choice, Deliverer deliverer){
         setVisible(false);
         switch(choice) {
             case 0:
-                //delivererController.displayAssignedOrder();
+                delivererController.displayAssignedOrder(deliverer.getOrderArrayList());
+                orderListView = new OrderListView();
+                orderListView.listCurrentOrders(deliverer.getOrderArrayList());
                 break;
 
             case 1:
@@ -64,7 +65,7 @@ public class DelivererOptionsView extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == btn_select){
             int index = optionsList.getSelectedIndex();
-            //switchView(index, ?);
+            switchView(index, deliverer);
         }
 
         if (e.getSource() == btn_exit){

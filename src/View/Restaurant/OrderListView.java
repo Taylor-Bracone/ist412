@@ -23,7 +23,6 @@ public class OrderListView extends JFrame {
         model.addColumn("Customer Name");
         model.addColumn("Restaurant Name");
         model.addColumn("Deliverer ID");
-        model.addColumn("Delivery Status");
         orderListTable = new JTable(model);
         JScrollPane orderListScrollPane = new JScrollPane(orderListTable);
 
@@ -45,7 +44,7 @@ public class OrderListView extends JFrame {
         setVisible(true);
     }
 
-    public void listPendingOrders(List<Order> orderList){
+    public void listCurrentOrders(List<Order> orderList){
         // Create an iterator to traverse the elements of the order list. The Order in the angle brackets
         // is the type of object stored in the list
         Iterator<Order> orderIterator = orderList.iterator();

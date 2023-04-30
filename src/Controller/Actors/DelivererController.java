@@ -42,4 +42,7 @@ public class DelivererController {
             }
         }
     }
+
+    public void displayAssignedOrder(ArrayList<Order> orderArrayList) {
+    }
 }
